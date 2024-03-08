@@ -1,0 +1,150 @@
+<div class="tab-pane fade border" id="v-pills-pnjs" role="tabpanel" aria-labelledby="v-pills-pnjs-tab">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active bg-secondary text-light" id="gestionarPnjs-tab" data-toggle="tab" data-target="#gestionarPnjs" type="button" role="tab" aria-controls="gestionarPnjs" aria-selected="false">Gestionar Pnjs</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link  bg-secondary text-light" id="pnjs-tab" data-toggle="tab" data-target="#pnjs" type="button" role="tab" aria-controls="pnjs" aria-selected="true">Crear Pnjs</button>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane fade border" id="pnjs" role="tabpanel" aria-labelledby="pnjs-tab">
+            <div class="col border">
+                <div class="row">
+                    <div class="col">
+                        <div class="row">
+                            <div class="col-8 p-1">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="nombreLabelPnj">Nombre</span>
+                                    </div>
+                                    <input type="text" id="nombrePnj" class="form-control" aria-label="Default" aria-describedby="nombreLabelPnj">
+                                </div>
+                            </div>
+                            <div class="col p-2">
+                                <div class="text-capitalize border"><b>Salud: </b><span id="saludPnj"></span></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="notasPnjLabel">Notas</span>
+                                    </div>
+                                    <input type="text" id="notasPnj" class="form-control" aria-label="Default" aria-describedby="notasPnjLabel">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col text-left text-capitalize">
+                                <div class="row"><b>capacidades especiales:</b></div>
+                                <div class="row" id="pnjCEList"></div>
+
+                            </div>
+                            <div class="col text-left text-capitalize">
+                                <div class="row"><b>equipo:</b></div>
+                                <div class="row" id="pnjEquipoList"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row border">
+                    <span> <img src="../imagenes/rolinapp/picas.png" style="width: 20px; height:20px;" /></span>
+                    <span>
+                <select class="custom-select" id="puntosPicas">
+                            <option value="1" selected>1</option>
+                            <option value="2" >2</option>
+                            <option value="3" >3</option>
+                            <option value="4" >4</option>
+                            <option value="5" >5</option>
+                        </select>&nbsp;
+                    </span>
+                    <span> <img src="../imagenes/rolinapp/corazones.png" style="width: 20px; height:auto;" /></span>
+                    <span>
+                <select class="custom-select" id="puntosCorazones">
+                    <option value="1" selected>1</option>
+                    <option value="2" >2</option>
+                    <option value="3" >3</option>
+                    <option value="4" >4</option>
+                    <option value="5" >5</option>
+                </select>&nbsp;
+            </span>
+                    <span> <img src="../imagenes/rolinapp/treboles.png" style="width: 20px; height:auto;" /></span>
+                    <span>
+                <select class="custom-select" id="puntosTreboles">
+                    <option value="1" selected>1</option>
+                    <option value="2" >2</option>
+                    <option value="3" >3</option>
+                    <option value="4" >4</option>
+                    <option value="5" >5</option>
+                </select>&nbsp;
+            </span>
+                    <span> <img src="../imagenes/rolinapp/diamantes.png" style="width: 20px; height:auto;" /></span>
+                    <span>
+                <select class="custom-select" id="puntosDiamantes">
+                    <option value="1" selected>1</option>
+                    <option value="2" >2</option>
+                    <option value="3" >3</option>
+                    <option value="4" >4</option>
+                    <option value="5" >5</option>
+                </select>
+            </span>
+                </div>
+                <div class="input-group mb-3">
+                    <select class="custom-select" id="selectEquipoPnjs">
+                <option value="default" selected>Escoge equipo a dar...</option>
+                        </select>
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-success" type="button" onclick="darEquipoPnj()">Asignar</button>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    <select class="custom-select" id="selectCEPnjs">
+                <option value="default" selected>Escoge Capacidad Especial a dar...</option>
+                        </select>
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-warning" type="button" onclick="darCEPnj()">Asignar</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div>
+                        <button type="button" class="btn btn-primary btn-lg" onclick="crearPnj()">Crear Pnj</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade active show border" id="gestionarPnjs" role="tabpanel" aria-labelledby="gestionarPnjs-tab">
+            <div class="col border">
+                <div class="row">
+                    <i class="bg-danger" id="infoPnj"></i>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="card-header text-capitalize bg-info">pnjs disponibles</div>
+                        <div class="list-group" id="listPnjsDisponibles" style="max-height: 300px; overflow-y: scroll;">
+                            <div id="pnjSelAdd" style="display: none;"></div>
+
+                        </div>
+
+                    </div>
+                    <div class="col-1 align-self-center">
+                        <div><button type="button" class="btn btn-lg btn-success" onclick="addPnjListado()">-&gt;</button></div>
+                        <p></p>
+                        <div class="align-self-end"><button type="button" class="btn btn-lg btn-warning" onclick="eliminarPnjListado()">&lt;-</button></div>
+                        <p></p>
+                        <div class="align-self-end" style="display: none;" id="borrarPnjCustom"><button type="button" class="btn btn-sm btn-danger" onclick="borrarPnjCustom()">X</button></div>
+                    </div>
+
+                    <div class="col">
+                        <div id="pnjSelRemove" style="display: none;"></div>
+                        <div class="card-header text-capitalize bg-info">pnjs actuales</div>
+                        <div class="list-group" id="listPnjsActuales" style="max-height: 300px; overflow-y: scroll;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,88 @@
+<div class="tab-pane fade border w-100" id="v-pills-equipo" role="tabpanel" aria-labelledby="v-pills-equipo-tab">
+    <div class="card w-100">
+
+        <div class="card-header w-100">Gestionar Equipo</div>
+        <div class="card-body w-100">
+            <div class="row w-100">
+                <div class="input-group mb-3">
+                    <select class="custom-select" id="selectPj" onchange="recargarElementosSelectorPorPJ()">
+<option value="default" selected>Escoge a que personaje</option>
+</select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <button class="btn btn-outline-success" type="button" onclick="darEquipo()">Dar</button>
+                    </div>
+                    <select class="custom-select" id="selectDarEquipo">
+<option value="default" selected>Escoge equipo a dar...</option>
+</select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-group mb-3">
+                    <select class="custom-select" id="selectRetirarEquipo">
+<option value="default" selected>Escoge equipo a retirar</option>
+</select>
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-warning" type="button" onclick="retirarEquipo()">Retirar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <p></p>
+    <div class="card">
+        <div class="card-body bg-warning" id="infoCrearEquipo" style="display: none;">
+            <i><span>Ya existe una pieza de equipo con ese nombre </span></i>
+        </div>
+    </div>
+
+    <div class="card w-100">
+        <div class="card-header">Crear Equipo Nuevo</div>
+        <div class="card-body">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="nombreLabelEquipo">Nombre</span>
+                </div>
+                <input type="text" id="nombreEquipoNuevo" class="form-control" aria-label="Default" aria-describedby="nombreLabelEquipo">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="descLabelEquipo">Descripcion</span>
+                </div>
+                <input type="text" id="descEquipoNuevo" class="form-control" aria-label="Default" aria-describedby="descLabelEquipo">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="paloLabelEquipo">Elige Palo</span>
+                </div>
+                <select class="custom-select" id="paloEquipo" aria-describedby="paloLabelEquipo">
+                                <option value="ninguno" selected>Ninguno</option>
+                            <option value="picas">Picas</option>
+                            <option value="corazones" >Corazones</option>
+                            <option value="treboles" >Treboles</option>
+                            <option value="diamantes" >Diamantes</option>
+                        </select>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="modLabelEquipo">Elige Modificacion</span>
+                </div>
+                <select class="custom-select" id="modEquipo" aria-describedby="modLabelEquipo">
+                            <option value="ninguna" selected>Ninguna</option>
+                            <option value="+1" >+1 Chequeo Habilidad</option>
+                            <option value="daño" >+1 Daño</option>
+                        </select>
+            </div>
+
+            <div class="justify-content-end">
+                <button id="btnSolicitarCrearEquipo" type="button" class="btn btn-success" onclick="solicitudCrearEquipo()">Crear Equipo</button>
+            </div>
+        </div>
+    </div>
+</div>

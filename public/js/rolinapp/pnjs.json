@@ -1,0 +1,270 @@
+{
+    "pnjs": [{
+            "id": "pistolero",
+            "nombre": "Pistolero",
+            "idJugador": "pnj",
+            "descripcion": "",
+            "habilidades": {
+                "picas": 3,
+                "treboles": 1,
+                "corazones": 1,
+                "diamantes": 1
+            },
+            "movimientos": ["curtidoPicas"],
+            "equipo": ["revolver", "guardapolvos"],
+            "salud": 0,
+            "heridas": [],
+            "consecuencias": [],
+            "custom": false,
+            "manchado": false
+        },
+        {
+            "id": "granjero",
+            "nombre": "Granjero",
+            "idJugador": "pnj",
+            "descripcion": "",
+            "habilidades": {
+                "picas": 1,
+                "treboles": 2,
+                "corazones": 1,
+                "diamantes": 1
+            },
+            "movimientos": ["profesional"],
+            "equipo": ["escopeta"],
+            "salud": 0,
+            "heridas": [],
+            "consecuencias": [],
+            "custom": false,
+            "manchado": false
+        },
+        {
+            "id": "forajido",
+            "nombre": "Forajido",
+            "idJugador": "pnj",
+            "descripcion": "",
+            "habilidades": {
+                "picas": 2,
+                "treboles": 2,
+                "corazones": 1,
+                "diamantes": 1
+            },
+            "movimientos": ["duro", "curtidoTreboles", "sadico"],
+            "equipo": ["revolver", "guardapolvos"],
+            "salud": 0,
+            "heridas": [],
+            "consecuencias": [],
+            "custom": false,
+            "manchado": false
+        },
+        {
+            "id": "sheriff",
+            "nombre": "Sheriff",
+            "idJugador": "pnj",
+            "descripcion": "",
+            "habilidades": {
+                "picas": 2,
+                "treboles": 2,
+                "corazones": 2,
+                "diamantes": 2
+            },
+            "movimientos": [],
+            "equipo": ["revolver"],
+            "salud": 0,
+            "heridas": [],
+            "consecuencias": [],
+            "custom": false,
+            "manchado": false
+        },
+        {
+            "id": "tahur",
+            "nombre": "Tahur",
+            "idJugador": "pnj",
+            "descripcion": "",
+            "habilidades": {
+                "picas": 2,
+                "treboles": 1,
+                "corazones": 2,
+                "diamantes": 3
+            },
+            "movimientos": [],
+            "equipo": ["revolver_ligero"],
+            "salud": 0,
+            "heridas": [],
+            "consecuencias": [],
+            "custom": false,
+            "manchado": false
+        },
+        {
+            "id": "cowboy",
+            "nombre": "Cowboy",
+            "idJugador": "pnj",
+            "descripcion": "",
+            "habilidades": {
+                "picas": 2,
+                "treboles": 3,
+                "corazones": 1,
+                "diamantes": 1
+            },
+            "movimientos": ["curtidoTreboles", "duro"],
+            "equipo": ["fusil"],
+            "salud": 0,
+            "heridas": [],
+            "consecuencias": [],
+            "custom": false,
+            "manchado": false
+        },
+        {
+            "id": "predicador",
+            "nombre": "Predicador",
+            "idJugador": "pnj",
+            "descripcion": "",
+            "habilidades": {
+                "picas": 1,
+                "treboles": 1,
+                "corazones": 3,
+                "diamantes": 2
+            },
+            "movimientos": ["curtidoCorazones"],
+            "equipo": ["escopeta"],
+            "salud": 0,
+            "heridas": [],
+            "consecuencias": [],
+            "custom": false,
+            "manchado": false
+        },
+        {
+            "id": "adinerado",
+            "nombre": "Apoderado",
+            "idJugador": "pnj",
+            "descripcion": "Un tipo muy rico que posee gran parte del pueblo y las tierras",
+            "habilidades": {
+                "picas": 1,
+                "treboles": 1,
+                "corazones": 2,
+                "diamantes": 3
+            },
+            "movimientos": ["curtidoDiamantes", "profesional"],
+            "equipo": ["revolver"],
+            "salud": 0,
+            "heridas": [],
+            "consecuencias": [],
+            "custom": false,
+            "manchado": false
+        },
+        {
+            "id": "ranger",
+            "nombre": "Ranger",
+            "idJugador": "pnj",
+            "descripcion": "",
+            "habilidades": {
+                "picas": 3,
+                "treboles": 3,
+                "corazones": 1,
+                "diamantes": 2
+            },
+            "movimientos": ["curtidoPicas", "curtidoTreboles", "duro"],
+            "equipo": ["revolver_pesado"],
+            "salud": 0,
+            "heridas": [],
+            "consecuencias": [],
+            "custom": false,
+            "manchado": false
+        }, {
+            "id": "coyote",
+            "nombre": "Coyote",
+            "idJugador": "pnj",
+            "descripcion": "Coyote del desierto.",
+            "habilidades": {
+                "picas": 2,
+                "treboles": 3,
+                "corazones": 0,
+                "diamantes": 1
+            },
+            "movimientos": ["curtidoTreboles", "duro"],
+            "equipo": ["garras"],
+            "salud": 0,
+            "heridas": [],
+            "consecuencias": [],
+            "custom": false,
+            "manchado": false
+        },
+        {
+            "id": "espiritu",
+            "nombre": "Espiritu",
+            "idJugador": "pnj",
+            "descripcion": "Un espiritu atrapado en estas extrañas tierras por culpa de la miasma oscura. Inmaterial, las armas convencionales no pueden dañarle.",
+            "habilidades": {
+                "picas": 1,
+                "treboles": 1,
+                "corazones": 2,
+                "diamantes": 3
+            },
+            "movimientos": ["inmaterial"],
+            "equipo": ["toqueFatasmal"],
+            "salud": 0,
+            "heridas": [],
+            "consecuencias": [],
+            "custom": false,
+            "manchado": false
+        },
+        {
+            "id": "espectro",
+            "nombre": "Espectro",
+            "idJugador": "pnj",
+            "descripcion": "Un espiritu oscuro y malvado fruto de la miasma oscura. Malvado y odioso. Inmaterial, las armas convencionales no pueden dañarle.",
+            "habilidades": {
+                "picas": 1,
+                "treboles": 1,
+                "corazones": 2,
+                "diamantes": 3
+            },
+            "movimientos": ["inmaterial"],
+            "equipo": ["toqueFatasmal"],
+            "salud": 0,
+            "heridas": [],
+            "consecuencias": [],
+            "custom": false,
+            "manchado": true
+        },
+        {
+            "id": "nomuerto",
+            "nombre": "No Muerto",
+            "idJugador": "pnj",
+            "descripcion": "El cuerpo de un fallecido reanimado por la miasma oscura. Retiene su inteligencia, personalidad y maldad.",
+            "habilidades": {
+                "picas": 1,
+                "treboles": 1,
+                "corazones": 2,
+                "diamantes": 3
+            },
+            "movimientos": ["nomuerto", "duro"],
+            "equipo": ["mordiscos"],
+            "salud": 0,
+            "heridas": [],
+            "consecuencias": [],
+            "custom": false,
+            "manchado": true
+        },
+        {
+            "id": "zombie",
+            "nombre": "Zombie",
+            "idJugador": "pnj",
+            "descripcion": "Un cadaver reanimado por la miasma oscura, carente de voluntad ni alma. Solo carne animada por la oscuridad para sus oscuros designios.",
+            "habilidades": {
+                "picas": 1,
+                "treboles": 1,
+                "corazones": 2,
+                "diamantes": 3
+            },
+            "movimientos": ["nomuerto", "curtidoTreboles", "duro"],
+            "equipo": ["mordiscos"],
+            "salud": 0,
+            "heridas": [],
+            "consecuencias": [],
+            "custom": false,
+            "manchado": true
+        }
+    ]
+
+
+}

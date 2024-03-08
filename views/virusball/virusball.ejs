@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>VirusBall</title>
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    <link rel="stylesheet" href="/css/virusball.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles&display=swap" rel="stylesheet">
+
+</head>
+
+<body class="text-white letra">
+    <div class="container">
+        <div class="container">
+            <!-- <div> -->
+            <div class="d-flex justify-content-center">
+                <h1>¡Bienvenido a VirusBall!</h1>
+            </div>
+            <div class="p-3 mb-3 text-bg-warning rounded-3">
+                <div class="d-flex justify-content-center">
+                    <h3>El mejor de todos los tiempos!</h3>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <h3 class="d-flex justify-content-center" id="recordBest">Puedes ser tu</h3>
+                </div>
+            </div>
+            <div class="p-3 mb-3 text-bg-secondary rounded-3">
+                <div class="d-flex justify-content-center">
+                    <div class="d-flex justify-content-center w-50">El mejor de HOY</div>
+                    <div class="d-flex justify-content-center w-50">El mejor del mes</div>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <div class="d-flex justify-content-center w-50" id="recordHoy">Puedes ser tu</div>
+                    <div class="d-flex justify-content-center w-50" id="recordMes">Puedes ser tu</div>
+                </div>
+                <div class="d-flex justify-content-center" id="liveAlertPlaceholder"></div>
+            </div>
+        </div>
+        <p></p>
+        <div class="d-flex justify-content-center">
+            <canvas id="canvas" width="600" height="800"></canvas>
+        </div>
+        <p></p>
+        <div class="d-flex justify-content-center">
+            <div class="caja">
+                <div class="d-flex justify-content-center">Como jugar:</div>
+                <div class="d-flex justify-content-center">¡Eres la Neurona de combate!</div>
+                <div class="d-flex justify-content-start">Debes acabar con la infeccion antes de que llegue hasta el fondo y se multiplique por doquier.</div>
+                <div class="d-flex justify-content-start"> Tu mision, atrapar los virus en bolas de su color y luego impactales con otra para maxificar el poder de tus leucocitos y destruirlos. Pero ojo, si impactas con una bola que no corresponde, creará una bola de pus!</div>
+                <div class="d-flex justify-content-center">¡Vence la infeccion, contamos contigo!</div>
+            </div>
+        </div>
+        <p></p>
+        <div class="d-flex justify-content-center">
+            <div class="caja">
+                <div class="d-flex justify-content-center">¿Quieres dejar un comentario?</div>
+                <div class="d-flex justify-content-center">
+                    Por nuestra parte encantados! estamos abiertos a recibir comentarios, ideas, colaboraciones, criticas, sobre todo si son constructivas. Solo tienes que dejarnos tu comentario de no mas de 500 caracteres y tu mail si esperas alguna respuesta. Por cierto,
+                    no se publica en ningun sitio, solo nosotros lo leeremos. PD: no vendemos tu mail a nadie, solo es por si quieres respuesta.
+                </div>
+
+                <p></p>
+                <div id="comentarioEnviado" class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3" style="display: none;">Tu comentario ha sido registrado. Gracias por tu colaboracion.</div>
+                <div id="comentarios">
+                    <div class="d-flex justify-content-center">
+                        <div class="w-100">
+                            <label for="mail" class="form-label"><i>Si quieres recibir respueta deja tu mail</i></label>
+                            <input type="email" class="form-control" id="mail" name="mail" placeholder="name@example.com" maxlength="50">
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <div class="w-100">
+                            <label for="mensaje" class="form-label">Comentario</label>
+                            <textarea class="form-control" id="comentario" name="comentario" rows="3" maxlength="500"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <button class="btn btn-primary" onclick="enviarComentario()">Enviar</button>
+                    </div>
+
+                    <p>
+
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+<script src="../js/virusball/base.js"></script>
+<script src="../js/virusball/recursos.js"></script>
+<script src="../js/virusball/bolas.js"></script>
+<script src="../js/virusball/sprites.js"></script>
+<script src="../js/virusball/pantallas.js"></script>
+
+
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=0.5"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+    <title>Test de Codi 3</title>
+    <style>
+        .centrado {
+            font-size: 1.7em;
+        }
+        
+        .tablaCentrada {
+            margin: 0 auto;
+        }
+    </style>
+    <script>
+        var codis = [
+            "3.0",
+            "3.1",
+            "3.1 OSCAR",
+            "3.1 SIERRA",
+            "3.2",
+            "3.3",
+            "3.4",
+            "3.5",
+            "3.6",
+            "3.7",
+            "3.8",
+            "3.10",
+            "3.11",
+            "3.14",
+            "3.15",
+            "3.16",
+            "3.17",
+            "3.18",
+            "3.19",
+            "3.20",
+            "3.21",
+            "3.22",
+            "3.23",
+            "3.25",
+            "3.26",
+            "3.28",
+            "3.29",
+            "3.30",
+            "3.32",
+            "3.33",
+            "3.40",
+            "3.50",
+            "3.51",
+            "3.52",
+            "3.70",
+        ];
+        var valors = [
+            "Aturada CardioRespiratoria",
+            "Trucada Telefonica",
+            "Trucada Telefonica Operativa (Alfa Charly)",
+            "Trucada Telefonica Sanitaria (Charly Tango)",
+            "Recurs No Operatiu per descans",
+            "Recurs Operatiu",
+            "Arribada al Lloc de l'incident",
+            "Informacio de la situacio o dades de l'afectat",
+            "Finalitzacio del servei, la unitat es troba operativa",
+            "Es precisa ajut policial",
+            "Possible Exitus",
+            "Retorn a Base",
+            "Anul·lacio del servei",
+            "SVA",
+            "Relleu de l'equip assistencial",
+            "Recurs no operatiu per repostar combustible",
+            "Recurs no operatiu per repostar material sanitari",
+            "Es precisa ajut de bombers",
+            "Es precisa una unitat de trasport sanitari (USVB)",
+            "Resteu atents en espera de noves dades o informacio",
+            "Donar coordenades de situacio o localitzacio de la unitat",
+            "Alta voluntaria/rebuig assistencia",
+            "Accident de transit",
+            "Intoxicacio enolica",
+            "Sobredosi per drogues",
+            "Pacient amb patologia psiquiatrica. Es troba agitat",
+            "Caiguda / trauma a via publica / domicili",
+            "Dolor toracic",
+            "Pacient inconscient",
+            "Pacient amb dispnea aguda",
+            "Silenci a la xarxa, comunicat d'emergencia",
+            "Indiqueu el temps estimat per arribar al lloc de l'incident",
+            "Trasllat assistit per metge / infermer",
+            "Trasllat NO assistit per metge / infermer",
+            "Es precisa ajut policial urgent. Situacio de risc fisic",
+        ];
+
+        const codiValorsMap = new Map();
+        let codigosPorSalir = [];
+        codis.map(objeto => codigosPorSalir.push(objeto));
+
+
+        function cargarSelects() {
+            for (let index = 0; index < valors.length; index++) {
+                codiValorsMap.set(codis[index], valors[index]);
+            }
+            recargar();
+        }
+
+        function recargar() {
+            // limpiamos
+
+            for (let index = 0; index < 5; index++) {
+                document.getElementById("v" + index).innerHTML = "";
+                document.getElementById("c" + index).innerHTML = "";
+                document.getElementById("c" + index).style = "color: black;";
+                document.getElementById("r" + index).innerHTML = "";
+            }
+
+            for (let index = 0; index < 5; index++) {
+                const options = [];
+                for (let index = 0; index < valors.length; index++) {
+                    const valor = valors[index];
+                    const option = document.createElement("option");
+                    option.value = index;
+                    option.innerHTML = valor;
+                    options[index] = option;
+                }
+                options.sort(() => Math.random() - 0.5);
+                const select = document.getElementById("v" + index);
+                const element = document.createElement("select");
+                options.forEach((option) => {
+                    element.appendChild(option);
+                });
+
+                select.append(element);
+            }
+            // en cada ejecucion y mientras el array de codigosPorSalir sea superior a X tenemos que tomar un valor al azar del array, añadirlo a valores y eliminarlo de codigosPorSalir para que acaben saliendo todos.
+
+            //ahora cogemos un valor al azar de la tabla de codigos y lo ponemos como valor a la columna de codigos
+            let continuar = true;
+            let valores = new Set();
+            // // console.log("Valores:");
+            while (continuar) {
+                let valor = Math.floor(Math.random() * codigosPorSalir.length);
+                valores.add(codigosPorSalir[valor]);
+                codigosPorSalir.splice(valor, 1);
+                if (valores.size >= 5 || codigosPorSalir.length < 1) continuar = false;
+            }
+            // en el momento en que quedan menos de 5 en codigosPorSalir lo reseteamos;
+            document.getElementById("info").innerText = codigosPorSalir.length;
+            if (codigosPorSalir.length < 5) {
+                console.log("reseteamos")
+                codigosPorSalir = [];
+                codis.map(objeto => codigosPorSalir.push(objeto));
+            }
+            console.log(codigosPorSalir)
+            let index = 0;
+            valores.forEach(codigo => {
+
+                // const codigo = codigosPorSalir[valor];
+                // console.log(valor, codigo)
+                let codi = document.getElementById("c" + (index++));
+                codi.innerText = codigo;
+            });
+
+
+        }
+
+        function evaluar() {
+            // // console.log("Evaluando");
+            console.log(codis);
+            for (let index = 0; index < 5; index++) {
+                let codi = document.getElementById("c" + index);
+                let tr = document.getElementById("v" + index);
+                let select = tr.childNodes[0];
+                var value = select.value;
+                if (codis[value] === codi.innerText) {
+
+                    let resposta = document.getElementById("r" + index);
+                    resposta.innerText = "";
+                    codi.style = "color: green;";
+                } else {
+                    let resposta = document.getElementById("r" + index);
+                    resposta.innerHTML = "<i>" + codiValorsMap.get(codi.innerText) + "</i>";
+                    codi.style = "color: red;";
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container d-flex justify-content-center fs-3">
+        <div class="col">
+            <div class="row">
+                <div class="col">
+                    <div class="p-3 mb-2 bg-primary text-white">Codi 3 - Codificacio propia del SEM</div>
+                </div>
+            </div>
+            <p></p>
+            <div class="row">
+                <div class="col">S'et presentaràn 5 codis del tipus 3.XX i has de sel·leccionar el seu descriptor dels sel·lectors de la seva dreta.</div>
+            </div>
+            <div class="row">
+                <div class="col">Al final, pulsa 'Evaluar' per coneixer els teus encerts i errades.</div>
+            </div>
+            <div class="row">
+                <div class="col text-grey"><i>Codis restants: <b id="info"></b></i></div>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <table class="table table-striped">
+                            <th>Codi</th>
+                            <th>Valor</th>
+                            <tr>
+                                <td id="c0">3.</td>
+                                <td id="v0"></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td id="r0"></td>
+                            </tr>
+                            <tr>
+                                <td id="c1">3.</td>
+                                <td id="v1"></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td id="r1"></td>
+                            </tr>
+                            <tr>
+                                <td id="c2">3.</td>
+                                <td id="v2"></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td id="r2"></td>
+                            </tr>
+                            <tr>
+                                <td id="c3">3.</td>
+                                <td id="v3"></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td id="r3"></td>
+                            </tr>
+                            <tr>
+                                <td id="c4">3.</td>
+                                <td id="v4"></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td id="r4"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button id="boton" class="btn btn-warning btn-lg" onclick="recargar()">Reiniciar</button>
+                </div>
+
+                <div class="col">
+                    <button id="boton" class="btn btn-primary btn-lg" onclick="evaluar()">Evaluar</button>
+                </div>
+            </div>
+            <p>
+
+            </p>
+            <p>
+
+            </p>
+        </div>
+
+    </div>
+    </div>
+</body>
+<script>
+    window.onload = cargarSelects();
+</script>
+
+</html>

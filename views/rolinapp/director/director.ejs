@@ -1,0 +1,143 @@
+<!doctype html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Rol in App / Director</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="/css/styles_canvasFW.css">
+</head>
+
+<body>
+    <!-- cabecero -->
+    <%- include ("../cabecero.ejs") %>
+        <div class="text-center text-dark">
+            <div class="container">
+                <div class="row" id="recuperarPartidaInfo" style="display: none;">
+                    <div class="col">
+                        Hemos encontrado la ultima partida que dirigiste, ¿quieres recuperarla en el punto que estaba? (Hay que poner los datos de la partida recuperada)
+                        <button type="button" class="btn btn-secondary" onclick="recuperarPartidaMaster()">Recuperar
+                            Partida</button>
+                    </div>
+                </div>
+                <div class="card m-1 p-1">
+                    <div class="card-header bg-primary text-light">
+                        Crear Partida
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <p>Si deseas crear una partida nueva, selecciona el juego, dale un nombre y apunta unas notas y al final pulsa 'Crear Partida'.</p>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text bg-primary text-light" id="inputGroup-sizing-default">Nombre</span>
+                                    <input type="text" id="nombre" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                    <div id="info" class="text-danger" style="display: none;">
+                                        <i>Debes ponerle un nombre a la partida.</i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text bg-primary text-light" id="notasLiteral">Notas</span>
+                                <input type="text" id="notas" class="form-control" aria-label="Sizing example input" aria-describedby="notasLiteral">
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text bg-primary text-light" id="inputGroup-juego">Juego</span>
+                            <select class="custom-select" id="juegoEscogido">
+                                <option value="WWW" selected>Wild Weird West</option>
+                                <option value="CMA" disabled>Cuerpo, Mente, Alma</option>
+                            </select>
+                        </div>
+                        <div class="text-right">
+                            <button type="button" id="aceptar" class="btn btn-success" onclick="crearPartida()">
+                                Crear
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row m-2">
+                    <div class="card w-100">
+                        <div class="card-header bg-primary text-light">Listado de partidas creadas</div>
+                        <div class="card-body">
+                            <div class="container">
+                                <div>Tus partidas creadas, sean nuevas o ya empezadas en algun momento, las encontraras aqui, asi como partidas que importes. El boton que las despliega muestra el nombre de la partida, y una vez desplegada puedes encontrar
+                                    datos como el logo del juego a la que pertenece, Notas que le pongas para tu interes, los nombres de los personajes que la estan jugando (no aparece ninguno cuando la partida es nueva y aun ni ha empezado, como es normal),
+                                    los personajes no jugadores que has creado para esa partida, la fecha de creacion y la fecha de la ultima vez que se salvó la partida.
+                                    <p>Tambien tienes botones de gestion de la partida como Borrar, Exportar para guardar una copia de la partida en fichero en disco que luego puedes importar, muy util si el navegador no guarda datos, y por ultimo, el boton
+                                        que inicia la partida y comienza a buscar jugadores.</p>
+                                </div>
+                                <div id="accordion">
+
+                                </div>
+                                <p></p>
+                                <div class="border">Tambien puedes importar una partida que has exportado anteriormente.<i>(Nota, se
+                                    sobreescribe cualquier partida con el mismo nombre)</i>
+                                    <div>
+                                        <input onchange="importarPartida()" type="file" accept=".partida" id="importarArchivo" name="file" style="display: none;" required>
+                                        <button class="btn btn-sm"><label for="importarArchivo" id="labelarchivo">Selecciona un archivo</label></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row m-2">
+                    <div class="card w-100">
+                        <div class="card-header bg-primary text-light">Módulos</div>
+                        <div class="card-body">
+                            <div class="container">
+                                Aqui puedes encontrar diferentes partidas o módulos ya creados con su trama y pnjs listos para dirigir.
+                                <div id="modulosAccordion">
+                                    <%- include ("modulos/modulo1.ejs") %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row m-2">
+                    <div class="card w-100">
+                        <div class="card-header bg-primary text-light">
+                            Como dirigir con la aplicacion RolInApp.
+                        </div>
+                        <div class="card-body">
+                            Aqui explicamos para que sirve cada pestaña y apartado de la aplicacion en partida.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%- include ("../piePagina.ejs") %>
+            </div>
+
+
+
+
+            <!-- Modal 
+        <div class="modal fade " id="exampleModalCenter " tabindex="-1 " role="dialog " aria-labelledby="exampleModalCenterTitle " aria-hidden="true ">
+            <div class="modal-dialog modal-dialog-centered " role="document ">
+                <div class="modal-content ">
+                    <div class="modal-body ">
+                        Partida creada y salvado.
+                    </div>
+                    <div class="modal-footer ">
+                        <button type="button " class="btn btn-secondary " data-dismiss="modal ">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+</body>
+
+<script src="../js/rolinapp/htmlUtils.js "></script>
+<script src="../js/rolinapp/partidaComunFW.js "></script>
+<script src="../js/rolinapp/crearPartida.js "></script>
+
+</html>

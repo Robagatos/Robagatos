@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gods Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" href="/css/styles_canvasFW.css"> -->
+    <style>
+        body {
+            background-image: url("/imagenes/jcc/baner.png");
+            backdrop-filter: blur(6px);
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            /* background-position-y: 100px; */
+            font-size: 15px;
+            text-align: justify;
+        }
+        
+        .bannerBack {
+            /* background-color: #fcfcfc; */
+            background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 6%, rgba(0, 212, 255, 1) 16%, rgba(252, 252, 252, 1) 26%, rgba(252, 252, 252, 1) 74%, rgba(0, 212, 255, 1) 84%, rgba(9, 9, 121, 1) 94%, rgba(2, 0, 36, 1) 100%);
+        }
+        /* .bannerBack {
+            background-image: url("/imagenes/jcc/baner.png");
+            backdrop-filter: blur(6px);
+            background-repeat: no-repeat;
+            background-size: 100% 150px;
+        } */
+        
+        p {
+            text-align: justify;
+        }
+    </style>
+</head>
+<!-- sticky-top  -->
+
+<body>
+
+    <div class="fondo text-dark">
+
+        <div class="sticky-top  align-items-center text-center">
+            <div class="bannerBack">
+                <a class="m-1 p-1" href="#">
+                    <img class="img-responsive" src="/imagenes/jcc/baner.png" style="max-height: 150px;">
+                </a>
+            </div>
+        </div>
+
+        <div class="container" style="opacity: 0.9;">
+            <div class="card">
+                <div class="card-header bg-primary text-light">Contexto</div>
+                <div class="card-body">
+                    <div class="clearfix">
+                        <img class="col-md-2 float-md-start" src="/imagenes/jcc/furtivo.png" style="transform: rotate(-5deg);"><img class="col-md-2 float-md-end" src="/imagenes/jcc/sanar.png" style="transform: rotate(5deg);">
+                        <dl class="row">
+                            <p>En este juego de cartas, los jugadores representan el papel de Dioses que juegan entre ellos empleando a peones mortales en sus partidas, como si un macabro ajedrez fuese.</p>
+                            <p>Desde el Olimpo, cada dios escoje sus Heroes, y los guia en una concatenacion de acciones y reacciones con la intecion de acabar con los de su rival, mientras el otro hace lo propio. Turnandose, jugando con las vidas de los
+                                mortales, hasta que solo quedan los escogidos por uno de los dos.</p>
+                            <p>Y mientras la partida se desarrolla, los dioses se observan, rien, maldicen y algunos hasta lloran. Al final, son los mortales los que caen, y los que quedan vivos, sin saber que solo es un juego, solo se preguntan '¿Volveré
+                                a ser un escogido por Dios?'</p>
+                        </dl>
+
+                    </div>
+
+                </div>
+            </div>
+            <p></p>
+            <div class="card">
+                <div class="card-header bg-primary text-light">Reglamento</div>
+                <div class="card-body">
+                    <p>El juego consiste en vencer a tu contrincante. Para ello, debes conseguir que en algún momento del juego no tenga ningún héroe en su banquillo.</p>
+                    <p><strong class="text-primary">Inicio: </strong>Cada jugador escoge 4 héroes de su baraja y los coloca en mesa en la zona del banquillo, que es la zona de la mesa frente a el que se emplea para colocar los heroes que estan en juego,
+                        y pueden realizar acciones y recibirlas.</p>
+                    <p>No puede escoger héroes repetidos.</p>
+                    <div class="float-end"><img src="/imagenes/jcc/algunosHeroes.png " height="400px "></div>
+                    <p>Luego baraja y tras cortar por su contrincante determinan quien empieza, cortando la baraja en un punto al azar y mostrando la carta, el primero que saque una carta con icono en blanco y el otro no, será el que empiece la partida.</p>
+                    <p><strong class="text-primary">Mazos y ubicaciones</strong></p>
+                    <p>El mazo inicial es de robar, están bocabajo. Cuando se agotan estas cartas, se toman las de descarte y se barajan, pasando a ser el nuevo mazo de robar.</p>
+                    <p>Las cartas jugadas van a un mazo paralelo de descartes, están bocarriba y pueden ser consultadas por ambos jugadores en todo momento.</p>
+                    <p>El cementerio es un mazo aparte donde van los héroes eliminados y alguna carta si asi es especificado. El cementerio no vuelve a la partida ni se baraja de nuevo con ningún mazo durante la partida.</p>
+
+                    <p><strong class="text-primary">Turnos: </strong>Cada jugador juega un turno y despues le toca a su contrincante. Si durante el desarrollo de cualquier turno un jugador queda sin heroes en el banquillo, ha perdido la partida.</p>
+                    <p>Cada turno consta de dos fases, una de Accion en la que el jugador juega cartas de su mano, o se descarta las cartas de la mano que no desee.<strong> ¡Atencion!</strong> son excluyentes, o juegas cartas de tu mano o te descartas cartas
+                        de la mano.</p>
+                    <p> <span class="text-primary">Fase de Accion: </span>En la fase de accion has es escoger una de las siguientes opciones</p>
+                    <div class="container align-items-center text-center">
+                        <div class="row">
+                            <div class="col border p-1 m-1 rounded-2" style="background-color: var(--bs-info-bg-subtle);">Juega cartas de tu mano para las que cumplas los requisitos.</div>
+                            <div class="col-1 ">-O-</div>
+                            <div class="col border p-1 m-1 rounded-2" style="background-color: var(--bs-info-bg-subtle);">Descarta las cartas que no quieras de tu mano</div>
+                        </div>
+                    </div>
+                    <p></p>
+                    <p><span class="text-primary">Fase de Robo: </span> Roba hasta tener 3 cartas en tu mano, si ya tienes 3 o mas, salta este paso.</p>
+                    <p><strong class="text-primary">Cartas</strong></p>
+                    <dl class="row">
+                        <dt class="col-sm-1">Heroes</dt>
+                        <dd class="col-sm-10">Pon la carta en la mesa. Puedes substituir uno de tus Héroes que ya están en mesa y el Substituido va a Descartes. Se le desanexan cualquier carta que tuviera adjunta.</dd>
+                    </dl>
+                    <div class="row align-items-center text-center">
+                        <div class="col ">Icono de cartas de Picaro</div>
+                        <div class="col ">Icono de cartas de Mago</div>
+                        <div class="col ">Icono de cartas de Clerigo</div>
+                        <div class="col ">Icono de cartas de Guerrero</div>
+                    </div>
+                    <div class="row align-items-center text-center">
+                        <div class="col"><img src="/imagenes/jcc/icono_picaro.png" height="80px"></div>
+                        <div class="col"><img src="/imagenes/jcc/icono_mago.png" height="80px"></div>
+                        <div class="col"><img src="/imagenes/jcc/icono_clerigo.png" height="80px"></div>
+                        <div class="col"><img src="/imagenes/jcc/icono_guerrero.png" height="80px"></div>
+                    </div>
+
+                    <div class="clearfix">
+                        <img class="col-md-3 float-md-end" src="/imagenes/jcc/cartas.png">
+
+                        <dl class="row">
+                            <dt class="col-sm-2"><img src="/imagenes/jcc/icono_impacto.png" height="40px">Impactos</dt>
+                            <dd class="col-sm-10">
+                                El impacto sobre un enemigo. Debes tener un héroe del tipo indicado para jugarlo (las cartas de impacto de fondo blanco y sin icono pueden ser empleadas por cualquier héroe), y este debe encontrarse en disposición de actuar (un héroe hechizado no juega
+                                cartas). Solo puedes aplicar el segundo impacto si no hay héroes enemigos sin impactos en disposición de ser impactados. Por ejemplo, el contrincante tiene 4 heroes, dos de ellos con un impacto cada uno, un picaro oculto
+                                con sigilo (no puede ser impactado) y un cuarto héroe sin impacto alguno. No puedes aplicar un impacto a los dos primeros héroes ya heridos mientras el cuarto héroe, que se encuentra en disposición de ser impacto, no tenga
+                                un impacto.
+                            </dd>
+                        </dl>
+
+                        <p class="text-primary "><img src="/imagenes/jcc/icono_picaro.png " height="40px ">Cartas de Picaro</p>
+                        <dl class="row">
+                            <dt class="col-sm-2"><img src="/imagenes/jcc/icono_sigilo.png " height="40px ">Sigilo</dt>
+                            <dd class="col-sm-10">Aplica a el pícaro que la ejecuta, no puede ser objetivo de cartas que afectan a un Heroe unitariamente (efectos globales sí que le afectan, por ejemplo, bola de fuego) salvo la carta de 'Furtivo' de otro picaro. Cuando realice
+                                una acción de Impacto (ojo, Impacto, no cualquier otra carta) Consume (descarta) esta carta de Sigilo. Cualquier efecto que le produce daño tambien elimina esta carta (como la Bola de fuego o un Furtivo)
+                            </dd>
+                            <dt class="col-sm-2"><img src="/imagenes/jcc/icono_furtivo.png " height="40px ">Furtivo</dt>
+                            <dd class="col-sm-10">Aplica este impacto a una carta. No puede ser evitado ni contrarrestado (no se aplican cartas de Defensa ni la de Armadura de Guerrero) pero si se ve afectado por Bendicion.
+                            </dd>
+                        </dl>
+
+                        <p class="text-primary "><img src="/imagenes/jcc/icono_mago.png " height="40px ">Cartas de Mago</p>
+                        <dl class="row">
+                            <dt class="col-sm-2"><img src="/imagenes/jcc/icono_fireball.png " height="40px ">Bola de fuego</dt>
+                            <dd class="col-sm-10">Aplica 1 de daño temporal a todos los contrincantes. Puede ser evitado por medios normales. Retira los caídos. Al final del turno retira esta carta (perdiendo el daño sobre aquellos que no han caído).Nota, una carta de Bendicion
+                                anula una bola de fuego, dejándola sin efecto. Si se emplean cartas de Defensa, son a nivel unitario, empleando una por cada héroe que evita el impacto. <i>Por ejemplo, el contrincante tiene un Guerrero con
+                                un impacto y con la carta de Armadura, un Picaro en Sigilo, un Mago y un Clerigo con un impacto. Juegas una bola de fuego porque tienes un Mago en disposición de jugar cartas (no tiene aplicado un Hechizar ni ningún efecto que
+                                anule su capacidad de usar acciones). La bola de fuego impacta en el guerrero, consumiendo su carta de Armadura. Impacta al Picaro, pues es un efecto global, y consume su carta de Sigilo y le aplica un impacto. Impacta al mago,
+                                que solo tiene ese impacto. Al clérigo también le impacta y sufre su segundo impacto, siendo eliminado y pasa al mazo de cementerio. Al final del turno la carta de bola de fuego va a descartes, y los impactos del picaro y del mago
+                                se desvanecen. Si además de la bola de fuego se hubiera jugado un impacto sobre el picaro o sobre el mago antes del fin del turno, sufrirían dos impactos y serian eliminados.</i>
+                            </dd>
+                            <dt class="col-sm-2"><img src="/imagenes/jcc/icono_hechizar.png " height="40px ">Hechizar</dt>
+                            <dd class="col-sm-10">Pon esta carta sobre un objetivo. No puede efectuar acciones hasta que se retire esta carta, y se retira cuando el objetivo sufra daño. No es un impacto, así que no puede ser sanado, pero si que puedes usar una carta de 'Defensa'
+                                para evitarla. Si el Héroe Objetivo es descartado con la acción ‘Reemplazar’ el hechizar es descartado y desanexado de este Héroe.
+                            </dd>
+                        </dl>
+
+                        <p class="text-primary "><img src="/imagenes/jcc/icono_clerigo.png " height="40px ">Cartas de Clérigo</p>
+                        <dl class="row">
+                            <dt class="col-sm-2"><img src="/imagenes/jcc/icono_sanar.png " height="40px ">Sanar</dt>
+                            <dd class="col-sm-10">Elimina hasta una carta de tu elección de cada uno de tus héroes.</dd>
+                            <dt class="col-sm-2"><img src="/imagenes/jcc/icono_bendicion.png " height="40px ">Bendición</dt>
+                            <dd class="col-sm-10">pon esta carta sobre el tablero. Cancela la próxima carta de tu elección que juegue tu contrincante, salvo que en esta indique lo contrario.</dd>
+                        </dl>
+
+                        <p class="text-primary "><img src="/imagenes/jcc/icono_guerrero.png " height="40px ">Cartas de Guerrero</p>
+                        <dl class="row">
+                            <dt class="col-sm-2"><img src="/imagenes/jcc/icono_armadura.png " height="40px ">Armadura</dt>
+                            <dd class="col-sm-10">Pon esta carta sobre un guerrero. Consúmela para evitar un impacto que tenga como objetivo el guerrero anexado. Puede apilarse mas de una copia sobre el mismo guerrero. </dd>
+                            <dt class="col-sm-2"><img src="/imagenes/jcc/icono_golpePoderoso.png " height="40px ">Golpe Poderoso</dt>
+                            <dd class="col-sm-10">Este carta cuenta como dos impactos si consigue aplicarse. (Con lo que eventualmente acaba con cualquier Heroe.)</dd>
+                        </dl>
+                        <img class="col-md-2 float-md-end" src="/imagenes/jcc/back.png" style="transform: rotate(3deg);">
+                        <p><span class="text-primary ">Cartas Blancas: </span>Se trata de cartas que no están reservadas a una clase concreta, sino que pueden ser ejecutadas por cualquier Heroe.</p>
+                        <dl class="row">
+                            <dt class="col-sm-2"><img src="/imagenes/jcc/icono_impacto.png " height="40px ">Impactos</dt>
+                            <dd class="col-sm-10">Pon el impacto sobre un enemigo. Se puede jugar con cualquiera de tus Heroes.</dd>
+                            <dt class="col-sm-2"><img src="/imagenes/jcc/icono_escudo.png " height="40px ">Defensa</dt>
+                            <dd class="col-sm-10">Evita que un impacto o carta de ataque se aplique sobre uno de tus héroes. Se juega en el turno del contrincante. No evita cartas que lo especifique, como por ejemplo, Furtivo. </dd>
+                            <dt class="col-sm-2"><img src="/imagenes/jcc/icono_tacticas.png " height="40px ">Tácticas</dt>
+                            <dd class="col-sm-10">Roba 3 cartas.</dd>
+                            <dt class="col-sm-2"><img src="/imagenes/jcc/icono_emboscada.png " height="40px ">Emboscada</dt>
+                            <dd class="col-sm-10">El contrincante debe descartar su mano. Como al inicio de su turno no tiene cartas, solo puede robar tres cartas y termina su turno.</dd>
+                            <dt class="col-sm-2"><img src="/imagenes/jcc/icono_pocion.png " height="40px ">Poción</dt>
+                            <dd class="col-sm-10">Elimina un impacto, o la de Hechizar o un Furtivo ya aplicado (pues se considera un impacto una vez aplicado) de uno de tus héroes.</dd>
+                        </dl>
+                    </div>
+                    <p></p>
+                    <p></p>
+                    <div class="row">
+                        <div class="col text-left">BETA</div>
+                        <div class="col text-end">by Robagatos</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+</body>

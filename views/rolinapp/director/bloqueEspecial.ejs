@@ -1,0 +1,60 @@
+<div class="card">
+    <h4 class="card-header bg-primary text-light">Duelos</h4>
+    <!-- <img src="../imagenes/rolinapp/revolver.png" style="position: absolute;   top:  50px; left: 50px;" /> -->
+    <div class="card-body">
+
+        <p>Informacion sobre Duelos</p>
+        <p>Para un duelo, hay que escoger a dos personajes, luego cada uno de ellos escoge como va a tomarse ese duelo, y con que arma.</p>
+        <li>Si escoge disparar primero obtiene un +5 a su iniciativa.</li>
+        <li>Si escoge asegurar el tiro obtiene un +1 a disparar.</li>
+        <p>Una vez tomadas las decisiones, se calcula la iniciativa y los resultados. los efectos del daño al disparo del segundo tirador solo son aplicables si el vencedor de la iniciativa gano por mas de 5</p>
+        <div class="row">
+            <div class="col">
+                <img src="../imagenes/rolinapp/revolver.png" style="width: 50%;" />
+            </div>
+            <div class="col justify-content-center">
+                <h4>Listado de Personajes en escena</h4>
+                <div class="card">
+                    <div class="form-check" name="selPjChecks" id="dueloPjsList">
+                    </div>
+                    <div class="form-check" name="selPnjChecks" id="dueloPnjsList">
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <img src="../imagenes/rolinapp/revolver.png" style="transform: scaleX(-1);width: 50%;" />
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col">
+                <button id="btnDuelistaIzq" type="button" class="p-1 btn btn-secondary btn-lg" onclick="addDuelista('Izq')">Añadir Duelista</button>
+                <div class="m-2 p-2" id="duelistaIzq"></div>
+
+            </div>
+            <div class="col">
+                <button id="btnDuelistaDer" type="button" class="p-1 btn btn-secondary btn-lg" onclick="addDuelista('Der')">Añadir Duelista</button>
+                <div class="m-2 p-2" id="duelistaDer"></div>
+            </div>
+        </div>
+        <div class="row" id="botonIniciarDuelo" style="display: none;">
+            <div class="col justify-content-center">
+                <div>Los duelistas estan listos.</div>
+                <button type="button" class="p-1 btn btn-danger btn-lg" onclick="iniciarDuelo()">Iniciar Duelo</button>
+            </div>
+        </div>
+        <div class="row" id="resumenDuelo" style="display: none;">
+            <div class="row justify-content-center">
+                <div class="col" id="resumenIniciativa">resumenIniciativa</div>
+            </div>
+            <div class="row">
+                <div class="col" id="resumenDisparos">resumenDisparos</div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>
+<%- include ("./subpaginas/modalDuelo.ejs") %>
+
+    <script src="../js/rolinapp/duelos.js"></script>

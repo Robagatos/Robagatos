@@ -1,0 +1,105 @@
+<!doctype html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Rol in App / Reglas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/styles_canvasFW.css">
+
+</head>
+
+<body>
+    <!-- cabecero -->
+    <%- include ("../cabecero.ejs") %>
+
+        <div class="container ">
+            <div class="card">
+                <div class="card-header">Como usar la aplicacion</div>
+                <div class="card-body bg-white">
+
+                </div>
+            </div>
+            <p></p>
+            <div class="card">
+                <div class="card-header">Resolucion de Chequeos</div>
+                <div class="card-body bg-white">
+                    <span>Durante el juego los jugadores, incluyendo al director de juego, van narrando todo aquello que dicen y hacen sus personajes, o los personajes no jugadores en caso del director.
+                        Toda accion de la que no se dude el exito o fracaso de su resolucion se determina directamente mediante la narracion, y unicamente aquellas en que caben varias posibilidades y/o
+                        dudas de su posible resolucion, se realiza un chequeo.
+                        Los chequeos o tiradas son solicitudes que lanza el director hacia un personaje, el cual recibe una alerta informandole de que se le ha solicitado un chequeo, de que tipo es, que dificultad presenta y 
+                        le muestra que opciones puede aplicar, a discrecion del jugador y aprovacion del director. Que se presente una opcion no quiere decir de que esta sea aplicable automaticamente. Cuando se trata de un pnj
+                        la resolucion se le presenta al director de juego.
+                        Cada chequeo va ligado a una habilidad o caracteristica, que representa el conocimiento global de ese campo para el personaje. Aunque es una abstraccion muy a grosso modo, tenemos 4 habilidades o caracteristicas,
+                        y o bien el director lo tiene claro o puede ser debatido a que habilidad corresponde el chequeo segun al descripcion de la accion que da el jugador.
+                        <h5>Habilidades o Caracteristicas</h5>
+                        Son 4, cada una tiene un nombre generico, pero luego en cada ambientacion pueden tomar un nombre diferente, por ejemplo, <b>'Violencia'</b> en la ambientacion de <i>Wild Weird West</i> se llama <b>'Picas'</b>.
+                        A continuacion las explicamos:
+                        <li><b>Violencia</b> <i>"Picas"</i>: Engloba toda accion donde la Violencia y su dominio son determinantes. El dominio de armas, de la pelea, sea combate cuerpo a cuerpo o a distancia, todo esto viene englobado en Violencia, 
+                            salvo que una capacidad especial diga lo contrario. Intimidar es una accion de Violencia.</li>
+                        <li><b>Sociales</b> <i>"Corazones"</i>: Las acciones de relacion con otros son de Corazones, implica una accion que involucre activamente a otros. Mentir, convencer, empatizar, arengar, hasta bailar o tener modales en mesa son de Corazones.</li>
+                        <li><b>Generales</b> <i>"Treboles"</i>: Aqui se engloban las acciones deportivas, fisicas, como correr, montar, saltar, trepar, nadar, incluso esconderse y sigilo. Piruetas y cabriolas, incluso esquivar (cuando solo pretendes apartarte de un peligro fisico conocido, y no devolver el golpe) son acciones Generales.</li>
+                        <li><b>Mentales</b> <i>"Diamantes"</i>: Las Acciones mentales como recordar, analizar, percepcion, observar a otros y analizarlos si mienten y otras acciones de este tipo son de este grupo. Los conocimentos que pueden aprenderse en un libro o que son de cultura oral tambien vienen en Mentales. Por ultimo, rompecabezas y puzzles se resuelven tambien con Mentales, asi como juegos de manos y trucos de trileros.</li>
+                        <p></p>
+                        <h5>Dificultad</h5>
+                       Las acciones, ademas, suelen estar definidas por una dificultad. La descripcion de la accion, y su entorno, determina la dificultad de su resolucion.
+                        <li><b>Muy Fácil</b> las acciones consideradas <i>Muy Fácil</i> estan al alcance de cualquiera, incluso de los profanos o negados de ese tipo de accion, que consiguen exito hasta en un 50% de las veces, 70% si incluimos los exitos parciales.</li>
+                        <li><b>Fácil</b>  las acciones consideradas <i>Fácil</i> son las que un aprendiz de ese ambito pueden conseguir habitualmente, con un ratio de exito de hasta en un 50% de las veces, 70% si incluimos los exitos parciales, y son muy faciles para un profesional.</li>
+                        <li><b>Normal</b>  las acciones consideradas <i>Normal</i> este es el nivel de dificultad estandar para alguien que se dedica a este ambito o tipo de accion.</li>
+                        <li><b>Dificil</b>  las acciones consideradas <i>Dificil</i> .</li>
+                        <li><b>Muy Dificil</b>  las acciones consideradas <i>Muy Dificil</i> .</li>
+                        <p></p>
+                        <h5>Los niveles de Salud</h5>
+                        El estado de salud del personaje, en lo que concierne a heridas, no de estados como enfermo o envenenado, define lo bien o maltrecho que esta el personaje. Cada nivel o estado tiene un tiempo de recuperacion, salvo Sano o Muerto. Los estado de salud empeoran segun descienden, acercandose a 'Muerto' y mejoran segun ascienden acercandose o llegando a 'Sano'. 
+                        Los niveles de Salud Herido Leve, Herido Grave y Herido Mortal acarrean ademas un negativo a todo chequeo a realizar, siendo de -1 para Herido Leve, -2 para Herido Grave y -3 para Herido Mortal. Evidentemente no son acumulables, se aplica el del nivel de salud en el que se encuentra el personaje.
+                        Existen heridas de diferente indole que sanan mas rápido o mas lento, y que tienen una repercusion mas o menos grave, o que pueden empeorar si no se tratan.
+                        <li><b>Sano</b> Este es el estado 'estandar', el deseado y en el que mas tiempo deberia estar el personaje. En este estado no tiene heridas ni lesiones y no aplica ninguna penalizacion.</li>
+                        <li><b>Herido Leve</b> Este nivel es el de menor importancia dentro de las heridas. Se puede tratar de un fuerte golpe, con su moratón, un corte poco profundo</li>
+                        <li><b>Herido Grave</b>  las acciones consideradas <i>Normal</i> este es el nivel de dificultad estandar para alguien que se dedica a este ambito o tipo de accion.</li>
+                        <li><b>Herido Mortal</b>  las acciones consideradas <i>Dificil</i> .</li>
+                        <li><b>Muerto</b>  las acciones consideradas <i>Muy Dificil</i> .</li>
+                        Existen heridas de diferente indole que sanan mas rápido o mas lento, y que tienen una repercusion mas o menos grave, o que pueden empeorar si no se tratan.
+                        <li><b>Contundentes o No Letales</b> Estas heridas sanan mas rapido que el resto de heridas, a razon de 1 dia por nivel de herida. no suelen conllevar complicaciones ni empeoran si no se tratan debidamente. Suelen ser el resultado de caidas a poca altura, peleas, golpes con armas improvisadas o palos y garrotes que no llegan a romper huesos. Lo mas importante es que como su nombre indica, son NO LETALES y un personaje que llega al estado de salud 'Muerto' por heridas de este tipo cae inconsciente en lugar de muerto. Atencion, si continua sufriendo daño, sea del tipo que sea una vez inconsciente si que morirá.</li>
+                        <li><b>Letales</b>  Las heridas letales son las que suelen doler mas y llevarnos a la tumba. Tienen la tasa de curacion estandar, a razon de una semana por nivel de herida. Son heridas que aunque letales, no alteran significativamente la anatomia de aquel que las sufre. Un disparo, una puñalada honda, cortes profundos, fuertes traumatismos. Todas esas heridas que, aunque letales, no son escabrosas.</li>
+                        <li><b>Escabrosas</b> Se trata de heridas letales de categoria superior. Su curacion suele ser mas lenta, el doble que una letal estandar, dos semanas por nivel de herida. Son heridas muy feas, que incluyen traumatismos con deformacion por roturas graves o aplastamiento con reducion a pulpa de los huesos y carne. Tambien incluyen amputaciones, heridas abiertas con desgarros y perdida de masa. Las quemaduras mas horribles tambien entran en este grupo.</li>
+                        <p></p>
+                        La mecanica de fondo, transparente para los jugadores, es la siguiente.
+                    </span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">Combate</div>
+                <div class="card-body bg-white">
+                    <span>El combate se resuelve con checks de Picas 'Violencia', salvo casos especiales cubiertos por reglas especificas, 
+                como el caso de los cowboys que realizan checks de Treboles 'Generales' para los combates de tipo pelea o con armas cuerpo a cuerpo improvisadas, o el uso del lazo.
+                El total de la habilidad se verá modificada por capacidades especiales, equipo o situaciones y entorno, o por el nivel de la habilidad del contrincante.</span>
+
+                    <h5>Modificadores Generales</h5>
+                    <li>+-1 Ataque por la espalda, o con un estado en el que el objetivo no es plenamente consciente del ataque.</li>
+                    <h5>Combate cerrado o cuerpo a cuerpo</h5>
+                    <li>El nivel de habilidad del contrincante: se aplica un -1 si el nivel de Picas del contrincante es de 3 o 4, -2 en caso de que sea 5. Se usara el nivel de Treboles u otra habilidad en los casos de que use otra para este tipo de combate</li>
+                    <li></li>
+                    <h5>Combate a distancia</h5>
+                    <li>+1 a Quemarropa, objetivo inmovil.</li>
+
+                    <h4>Daño</h4>
+                    <span>Existen dos tipos de daño, letal y no letal. el no letal se cura mucho mas rapido y lo mas importante, los daños 'muerto' se cambia a 'inconsciente'.
+                En combate cuerpo a cuerpo tipo pelea es no letal y el daño base es de (1? o es el valor de treboles o violencia?)
+                El daño se verá modificado por capacidades especiales, equipo o situaciones y entorno, o por el nivel de la habilidad del contrincante, ya que una mejor habilidad no solo mejora nuestra probabilidad de exito, sino muchas veces, la calidad de este. Habitualmente, el arma empleada determina el valor del daño</span>
+                    <li>El nivel de habilidad del atacante: se aplica un +1 si el nivel de Picas del atacante es de 3 o 4, +2 en caso de que sea 5. Se usara el nivel de Treboles u otra habilidad en los casos de que use otra para este tipo de combate</li>
+                </div>
+            </div>
+        </div>
+
+
+        <%- include ("../piePagina.ejs") %>
+
+</body>
+
+
+</html>

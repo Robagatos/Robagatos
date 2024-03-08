@@ -1,0 +1,523 @@
+<!doctype html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Rol in App / Partida Director</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/styles_canvasFW.css">
+</head>
+
+<body>
+    <%- include ("../cabecero.ejs") %>
+        <div class="text-center text-dark">
+            <div class="container">
+                <div class="w-100 sticky-top border border-primary rounded-pill bg-dark p-1 text-light text-left">
+                    <span><i><b>Informacion: </b></i><span id="infoTop"></span>
+                </div>
+                <div class="card">
+                    <div class="row">
+                        <div class="w-100 justify-content-center" id="logoJuego"> </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <b>Partida:</b>
+                            <span id="nombre"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            Creada el:
+                            <span id="fechaCreacion"></span>
+                        </div>
+                    </div>
+                    <!-- <div class="row">
+                        <div class="col">
+                            <span id="publica" class="">NO</span>
+                        </div>
+                    </div> -->
+                    <div class="row ">
+                        <div class="col">
+                            Continuando desde:
+                            <span id="fechaGuardado"></span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="notasLiteral">Notas</span>
+                                <input type="text" id="notas" class="form-control" aria-label="Sizing example input" aria-describedby="notasLiteral">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button type="button" id="iniciarPartida" class="btn btn-group-toggle" data-dismiss="modal" onclick="iniciarPartidaMaster()">Privatizar Partida</button>
+                        </div>
+                        <div class="col">
+                            <span id="publica" class="">NO</span>
+                        </div>
+                        <div class="col"> <button type="button" class="btn" onclick="exportarPartidaEnJuego()">Exportar</button> </div>
+                    </div>
+                </div>
+                <p></p>
+
+                <div class="card">
+                    <h4 class="card-header bg-primary text-light">Personajes Jugadores</h4>
+
+                    <div class="card-body">
+                        <div class="container">
+                            <div id="accordion">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="addPj" class="p-3" style="display: none;">
+                        <button type="button" id="aceptar" class="btn btn-lg rounded-pill btn-success" onclick="" data-toggle="modal" data-target="#exampleModalCenter">
+                        Solicitud de acceso
+                      </button>
+                        <div class="modal fade" id="exampleModalCenter" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        El personaje <span id="nombrePJ"></span> quiere añadirse a la partida.
+                                        <span id="pjRecuperado" style="display: none;"><i>Como el personaje ya existia en la partida, recuperamos el salvado en la partida.</i></span>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="card-body">
+                                                    <div class="container">
+                                                        <div id="pjInfoPreAceptar">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-success" data-dismiss="modal" onclick="aceptarPJ()">Aceptar</button>
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="rechazarPJ()">Rechazar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p></p>
+                <div>
+                    <%- include ("../historicoChecks.ejs") %>
+                </div>
+                <p></p>
+                <div id="checks" style="display: none;">
+                    <div class="row">
+                        <div class="card w-100">
+                            <div class="card-header W-100 bg-primary text-light">HERRAMIENTAS</div>
+                            <div class="card-body w-100">
+                                <!-- <div class="container"> -->
+                                <div class="row">
+                                    <ul class="nav nav-pills" id="tabConsecuencias" role="tablist">
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link active" id="v-pills-checks-tab" data-toggle="tab" data-target="#v-pills-checks" type="button" role="tab" aria-controls="v-pills-checks" aria-selected="true">Pruebas</button>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="v-pills-herirsanar-tab" data-toggle="tab" data-target="#v-pills-herirsanar" type="button" role="tab" aria-controls="v-pills-herirsanar" aria-selected="false">Herir/Sanar</button>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="v-pills-chequeoherirsanar-tab" data-toggle="tab" data-target="#v-pills-chequeoherirsanar" type="button" role="tab" aria-controls="v-pills-chequeoherirsanar" aria-selected="false">Checks Herir</button>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="v-pills-consecuencias-tab" data-toggle="tab" data-target="#v-pills-consecuencias" type="button" role="tab" aria-controls="v-pills-consecuencias" aria-selected="false">Consecuencias</button>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="v-pills-equipo-tab" data-toggle="tab" data-target="#v-pills-equipo" type="button" role="tab" aria-controls="v-pills-equipo" aria-selected="false">Equipo</button>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="v-pills-pnjs-tab" data-toggle="tab" data-target="#v-pills-pnjs" type="button" role="tab" aria-controls="v-pills-pnjs" aria-selected="false">Pnjs</button>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="v-pills-exp-tab" data-toggle="tab" data-target="#v-pills-exp" type="button" role="tab" aria-controls="v-pills-exp" aria-selected="false">Experiencia</button>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="row">
+                                    <div class="tab-content w-100" id="v-pills-tabContent">
+                                        <div class="tab-pane fade show active border" id="v-pills-checks" role="tabpanel" aria-labelledby="v-pills-checks-tab">
+
+                                            <div class="card-group">
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        Selecciona Habilidad
+                                                    </div>
+                                                    <div class="card-body text-left">
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="picas">
+                                                                    <label class="form-check-label" for="picas">Picas</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-1">
+                                                                <img src="../imagenes/rolinapp/picas.png" style="width: 20px; height:auto;" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="diamantes">
+                                                                    <label class="form-check-label" for="diamantes">Diamantes</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-1">
+                                                                <img src="../imagenes/rolinapp/diamantes.png" style="width: 20px; height:auto;" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="treboles">
+                                                                    <label class="form-check-label" for="treboles">Treboles</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-1">
+                                                                <img src="../imagenes/rolinapp/treboles.png" style="width: 20px; height:auto;" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="corazones">
+                                                                    <label class="form-check-label" for="corazones">Corazones</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-1">
+                                                                <img src="../imagenes/rolinapp/corazones.png" style="width: 20px; height:auto;" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        Selecciona Dificultad
+                                                    </div>
+                                                    <div class="card-body text-left">
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="radio" name="flexRadioDefault2" id="muyFacil">
+                                                                    <label class="form-check-label" for="muyFacil">Muy Facil</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="radio" name="flexRadioDefault2" id="facil">
+                                                                    <label class="form-check-label" for="facil">Facil</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="radio" name="flexRadioDefault2" id="media" checked>
+                                                                    <label class="form-check-label" for="media">Media</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="radio" name="flexRadioDefault2" id="dificil">
+                                                                    <label class="form-check-label" for="dificil">Dificil</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="radio" name="flexRadioDefault2" id="muyDificil">
+                                                                    <label class="form-check-label" for="muyDificil">Muy Dificil</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        Selecciona Objetivo
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="col text-left">
+                                                            <div class="form-check border border-primary" name="selPjChecks" id="checksPjs">
+                                                            </div>
+                                                            <div class="form-check bg-light" name="selPnjChecks" id="checksPnjs">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="row">
+                                                    <div class="col justify-content-end"><button id="btnSolicitarCheck" type="button" class="p-1  btn btn-success btn-lg" data-dismiss="modal" onclick="solicitarCheck()">Solicitar Check</button></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="tab-pane fade border w-100" id="v-pills-herirsanar" role="tabpanel" aria-labelledby="v-pills-herirsanar-tab">
+                                            <div class="card-group w-100">
+                                                <div class="card w-100">
+                                                    <div class="card-header w-100">
+                                                        Objetivo
+                                                    </div>
+                                                    <div class="card-body text-left">
+                                                        <div class="form-check" name="selPjChecks" id="selPjSalud">
+                                                        </div>
+                                                        <div class="form-check" name="selPnjChecks" id="selPnjSalud">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card w-100">
+                                                    <div class="card-header w-100">Estado de Salud</div>
+                                                    <div class="card-body w-100" id="selHerirSanarDirecto">
+                                                        <div class="form-check text-left">
+                                                            <div class="bg-success text-white">
+                                                                <input class="form-check-input" type="radio" name="herirSanar" id="sano">
+                                                                <label class="form-check-label" for="dificil">Sano</label>
+                                                            </div>
+                                                            <div class="bg-secondary text-white">
+                                                                <input class="form-check-input" type="radio" name="herirSanar" id="leve">
+                                                                <label class="form-check-label" for="dificil">Herido Leve</label>
+                                                            </div>
+                                                            <div class="bg-warning text-dark">
+                                                                <input class="form-check-input" type="radio" name="herirSanar" id="grave">
+                                                                <label class="form-check-label" for="dificil">Herido Grave</label>
+                                                            </div>
+                                                            <div class="bg-danger text-white">
+                                                                <input class="form-check-input" type="radio" name="herirSanar" id="mortal">
+                                                                <label class="form-check-label" for="dificil">Herida Mortal</label>
+                                                            </div>
+                                                            <div class="text-white bg-dark">
+                                                                <input class="form-check-input" type="radio" name="herirSanar" id="muerto">
+                                                                <label class="form-check-label" for="dificil">Muerto</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card w-100">
+                                                    <div class="card-header w-100">Categoria de Herida</div>
+                                                    <div class="card-body w-100">
+                                                        <div class="form-check text-left">
+                                                            <div class="">
+                                                                <input class="form-check-input" type="radio" name="selTipoHeridaAplicar" value=0>
+                                                                <label class="form-check-label" for="Contundente">Contundente</label>
+                                                            </div>
+                                                            <div class="">
+                                                                <input class="form-check-input" type="radio" name="selTipoHeridaAplicar" value=1 checked>
+                                                                <label class="form-check-label" for="Letal">Letal</label>
+                                                            </div>
+                                                            <div class="">
+                                                                <input class="form-check-input" type="radio" name="selTipoHeridaAplicar" value=2>
+                                                                <label class="form-check-label" for="Escabrosa">Escabrosa</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="row">
+                                                    <div class="col justify-content-end"><button id="btnSolicitarCheck" type="button" class="p-1  btn btn-success btn-lg" onclick="solicitudAplicarCambioSalud(this)">Aplicar</button></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade border" id="v-pills-chequeoherirsanar" role="tabpanel" aria-labelledby="v-pills-chequeoherirsanar-tab">
+                                            <div class="card">
+                                                <div class="card-body bg-warning" id="lastCheckID" style="display: none;">
+                                                    <input type="checkbox" id="lastCheckCB" onchange="mostrarOcultarArmaHerida(this)"><i><span>Ultimo check con exito de </span><span id="lastCheckPj"></span></i>
+                                                </div>
+                                            </div>
+
+                                            <div class="card-group">
+                                                <div class="card" id="armaHeridaCard" style="display: block;">
+                                                    <div class="card-header text-center">
+                                                        Daño / Arma
+                                                    </div>
+                                                    <div class="card-body text-left">
+                                                        <div id="selHerirSanarCheckeoDados" class="form-check">
+                                                            <div class="">
+                                                                <input class="form-check-input" type="radio" name="checkHerirSanar" id="DMG1" onclick=" coberturaPorDefecto()">
+                                                                <label class="form-check-label" for="DMG1">Arma ligera</label>
+                                                            </div>
+                                                            <div class="">
+                                                                <input class="form-check-input" type="radio" name="checkHerirSanar" id="DMG2" onclick=" coberturaPorDefecto()">
+                                                                <label class="form-check-label" for="DMG2">Arma media</label>
+                                                            </div>
+                                                            <div class="">
+                                                                <input class="form-check-input" type="radio" name="checkHerirSanar" id="DMG3" onclick=" coberturaPorDefecto()">
+                                                                <label class="form-check-label" for="DMG3">Arma pesada</label>
+                                                            </div>
+                                                            <div class="">
+                                                                <input class="form-check-input" type="radio" name="checkHerirSanar" id="DMG4" onclick=" coberturaPorDefecto()">
+                                                                <label class="form-check-label" for="DMG4">Arma de caza mayor</label>
+                                                            </div>
+                                                            <div class="">
+                                                                <input class="form-check-input" type="radio" name="checkHerirSanar" id="DMG5" onclick=" coberturaPorDefecto()">
+                                                                <label class="form-check-label" for="DMG5">Explosivos</label>
+                                                            </div>
+                                                        </div>
+                                                        <p></p>
+                                                        <b>- Categoria de Herida -</b>
+                                                        <div class="form-check text-left">
+                                                            <div class="">
+                                                                <input class="form-check-input" type="radio" name="selTipoHerida" value=0>
+                                                                <label class="form-check-label" for="Contundente">Contundente</label>
+                                                            </div>
+                                                            <div class="">
+                                                                <input class="form-check-input" type="radio" name="selTipoHerida" value=1 checked>
+                                                                <label class="form-check-label" for="Letal">Letal</label>
+                                                            </div>
+                                                            <div class="">
+                                                                <input class="form-check-input" type="radio" name="selTipoHerida" value=2>
+                                                                <label class="form-check-label" for="Escabrosa">Escabrosa</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card-header text-center" data-toggle="tooltip" data-html="true" title="Para que esta sea efectiva, debe cubrir o proteger al menos el 50% del personaje">
+                                                        Cobertura
+                                                    </div>
+                                                    <div name="selHerirSanarCheckeoCobertura" class="card-body text-left">
+                                                        <div class="form-check">
+                                                            <div class="">
+                                                                <input class="form-check-input" type="radio" name="cobertura" id="sinCobertura" checked>
+                                                                <label class="form-check-label" for="dificil">Sin cobertura</label>
+                                                            </div>
+                                                            <div class="">
+                                                                <input class="form-check-input" type="radio" name="cobertura" id="ligeraCobertura">
+                                                                <label class="form-check-label" for="dificil">Cobertura Ligera</label>
+                                                            </div>
+                                                            <div class="">
+                                                                <input class="form-check-input" type="radio" name="cobertura" id="pesadaCobertura">
+                                                                <label class="form-check-label" for="dificil">Cobertura Pesada</label>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        Objetivo
+                                                    </div>
+                                                    <div class="col text-left">
+                                                        <div class="form-check" name="selPjChecks" id="selPjChecksSalud">
+                                                        </div>
+                                                        <div class="form-check " name="selPnjChecks" id="selPnjChecksSalud">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row justify-content-center">
+                                                <button id="btnSolicitarCheck" type="button" class="p-1  btn btn-success btn-lg" onclick="solicitudCheckCambioSalud(this)">Aplicar</button>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade border" id="v-pills-consecuencias" role="tabpanel" aria-labelledby="v-pills-consecuencias-tab">
+                                            <div class="container-fluid">
+                                                <div class="card-group">
+                                                    <div class="card">
+                                                        <h5 class="card-header">
+                                                            Selecciona la Consecuencia
+                                                        </h5>
+                                                        <div name="selConsecuencia" class="card-body">
+                                                            <div class="row">
+                                                                <div class="col">
+                                                                    <div class="form-check text-left text-capitalize" id="consecuencias">
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card">
+                                                        <h5 class="card-header">
+                                                            Personajes
+                                                        </h5>
+                                                        <div class="card-body text-left">
+                                                            <div class=" card">
+                                                                <div class="form-check" name="selPjChecks" id="consecueciasPjsList">
+                                                                </div>
+                                                                <div class="form-check" name="selPnjChecks" id="consecueciasPnjsList">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="row justify-content-center">
+                                                    <button id="btnSolicitarCheck" type="button" class="p-1 btn btn-success btn-lg" onclick="solicitudAplicarConsecuencia(this)">Aplicar Consecuencia</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <%- include ("./subpaginas/equipoTab.ejs") %>
+                                            <%- include ("./subpaginas/pnjsTab.ejs") %>
+                                                <%- include ("./subpaginas/expTabDirector.ejs") %>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p></p>
+                    <%- include ("./subpaginas/tiradas.ejs") %>
+                        <p></p>
+                        <%- include ("./subpaginas/visorRapido.ejs") %>
+                            <p></p>
+
+                            <%- include ("./subpaginas/iniciativaDirector.ejs") %>
+                                <p>FALTA DAR EXPERIENCIA, Y QUE EL JUGADOR PUEDA USAR ESA EXPERIENCIA</p>
+                                <%- include ("./bloqueEspecial.ejs") %>
+
+                </div>
+
+
+                <p></p>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="col justify-content-end" id="infoEstadoSalvado"></div>
+                    </div>
+                </div>
+
+                <%- include ("./subpaginas/modalChecks.ejs") %>
+
+                    <%- include ("../piePagina.ejs") %>
+            </div>
+        </div>
+
+</body>
+<script src="../js/rolinapp/htmlUtils.js"></script>
+<script src="../js/rolinapp/personajeFW.js"></script>
+<script src="../js/rolinapp/motorReglasCore.js"></script>
+<script src="../js/rolinapp/iniciativas.js"></script>
+<script src="../js/rolinapp/partidaComunFW.js "></script>
+<script src="../js/rolinapp/partidaDirectorFW.js"></script>
+<script>
+    const tipoJugador = "master";
+    window.onload = recuperarPartida();
+</script>
+
+</html>

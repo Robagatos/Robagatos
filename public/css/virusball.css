@@ -1,0 +1,28 @@
+#canvas {
+    border: 1px solid black;
+    background: #ffffff;
+}
+
+body {
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#b3dced+0,ffffff+30,ffffff+70,bce0ee+100 */
+    background: #b3dced;
+    /* Old browsers */
+    background: -moz-linear-gradient(left, #070707 0%, #801212 30%, #801212 70%, #070707 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #070707 0%, #801212 30%, #801212 70%, #070707 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #070707 0%, #801212 30%, #801212 70%, #070707 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#b3dced', endColorstr='#bce0ee', GradientType=1);
+    /* IE6-9 */
+    text-align: justify;
+}
+
+.caja {
+    width: 600px;
+}
+
+.letra {
+    font-family: 'Fuzzy Bubbles', cursive;
+    font-size: x-large;
+}

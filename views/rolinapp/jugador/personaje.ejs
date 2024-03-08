@@ -1,0 +1,310 @@
+<!doctype html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Rol in App / Personaje</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/styles_canvasFW.css">
+</head>
+
+<body>
+    <!-- cabecero -->
+    <%- include ("../cabecero.ejs") %>
+        <div class="text-center text-dark">
+
+            <div class="container">
+
+                <div class="row"> <img class="w-100" src="../imagenes/rolinapp/logoWWWhorizontal.png" /></div>
+
+                <div id="accordion">
+                    <!-- Concepto -->
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Concepto
+                                </button>
+                            </h5>
+                        </div>
+                    </div>
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-body bg-white">
+                            <div class="container">
+                                <div class="row">
+
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="nombreLabel">Nombre</span>
+                                        </div>
+                                        <input type="text" id="nombre" class="form-control" aria-label="Default" aria-describedby="nombreLabel" onchange="mostrarBotonAceptar()">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="descripcionLabel">Descripcion</span>
+                                        </div>
+                                        <input type="text" id="descripcion" class="form-control" aria-label="Default" aria-describedby="descripcionLabel">
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                        <label class="btn btn-secondary active" onclick="mostrarDesc('pistolero')">
+                                          <input type="radio" name="options" checked > Pistolero
+                                        </label>
+                                        <label class="btn btn-secondary" onclick="mostrarDesc('cowboy')">
+                                          <input type="radio" name="options" > Cowboy
+                                        </label>
+                                        <label class="btn btn-secondary" onclick="mostrarDesc('tahur')">
+                                          <input type="radio" name="options" > Tahur
+                                        </label>
+                                        <label class="btn btn-secondary" onclick="mostrarDesc('predicador')">
+                                            <input type="radio" name="options"> Predicador
+                                          </label>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col" id="descClases">
+                                        <div id="fotoPj">aqui va la foto del pj</div>
+                                        <div id="pistolero">Aqui va la descripcion del Pistolero</div>
+                                        <div id="cowboy">Aqui va la descripcion del Cowboy</div>
+                                        <div id="tahur">Aqui va la descripcion del Tahur</div>
+                                        <div id="predicador">Aqui va la descripcion del Predicador</div>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center"><i>El <b id="nombreClase"></b> resuelve los checkeos de <b id="habEspecial"></b> con <b id="palo"></b></i></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- atributos -->
+                    <div class="card">
+                        <div class="card-header" id="headingTwo">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Habilidades
+                                </button>
+                            </h5>
+                        </div>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                        <div class="card-body bg-white">
+                            <div class="container">
+                                <div class="row "><span>Selecciona las habilidades de tu personaje. Cada punto equivale a un dado, con 0 puntos eres un negado en ese campo, con 1 punto eres un aprendiz, con dos puntos un profesional, con tres un experto, con cuarto un maestro y con 5 una leyenda. </span>
+                                    <div class="col text-center align-items-center"><b>Puntos de habilidad disponibles: </b> <b id="puntosHab"></b></div>
+                                </div>
+
+                                <div class="row text-left">
+                                    <!-- <div class="col">
+                                        <img src="../imagenes/rolinapp/picas.png" style="width: 50px; height:auto;" />
+                                    </div> -->
+                                    <div class="col text-left">
+                                        <img class="fl-l" src="../imagenes/rolinapp/picas.png" style="width: 50px; height:auto;" />
+                                        <div class="row ">
+                                            <input id="p1" type="checkbox" onclick="setPuntoHab(this)">
+                                            <input id="p2" type="checkbox" onclick="setPuntoHab(this)" disabled>
+                                            <input id="p3" type="checkbox" onclick="setPuntoHab(this)" disabled>
+                                            <input id="p4" type="checkbox" onclick="setPuntoHab(this)" disabled>
+                                            <input id="p5" type="checkbox" onclick="setPuntoHab(this)" disabled>
+                                        </div>
+                                        <div class="row">
+                                            <span id="descPicas">Picas esta relacionada con la violencia. Combate, intimidacion, destruccion de objetos son acciones de violencia.</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="row text-left">
+                                    <div class="col text-left">
+                                        <img class="fl-l" src="../imagenes/rolinapp/corazones.png" style="width: 50px; height:auto;" />
+                                        <div class="row">
+                                            <input id="c1" type="checkbox" onclick="setPuntoHab(this)">
+                                            <input id="c2" type="checkbox" onclick="setPuntoHab(this)" disabled>
+                                            <input id="c3" type="checkbox" onclick="setPuntoHab(this)" disabled>
+                                            <input id="c4" type="checkbox" onclick="setPuntoHab(this)" disabled>
+                                            <input id="c5" type="checkbox" onclick="setPuntoHab(this)" disabled>
+                                        </div>
+                                        <div class="row">
+                                            <span id="descCorazones">Corazones esta relacionada con las relaciones humanas, la empatia, arengar y convencer.</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="row text-left">
+                                    <div class="col text-left">
+                                        <img class="fl-l" src="../imagenes/rolinapp/treboles.png" style="width: 50px; height:auto;" />
+                                        <div class="row">
+                                            <input id="t1" type="checkbox" onclick="setPuntoHab(this)">
+                                            <input id="t2" type="checkbox" onclick="setPuntoHab(this)" disabled>
+                                            <input id="t3" type="checkbox" onclick="setPuntoHab(this)" disabled>
+                                            <input id="t4" type="checkbox" onclick="setPuntoHab(this)" disabled>
+                                            <input id="t5" type="checkbox" onclick="setPuntoHab(this)" disabled>
+                                        </div>
+                                        <div class="row">
+                                            <span id="descTreboles">Treboles esta relacionada con las habilidades de campo abierto como trepar, nadar, montar, saltar, acrobacias y percepcion.</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="row text-left">
+                                    <div class="col text-left">
+                                        <img class="fl-l" src="../imagenes/rolinapp/diamantes.png" style="width: 50px; height:auto;" />
+                                        <div class="row">
+                                            <input id="d1" type="checkbox" onclick="setPuntoHab(this)">
+                                            <input id="d2" type="checkbox" onclick="setPuntoHab(this)" disabled>
+                                            <input id="d3" type="checkbox" onclick="setPuntoHab(this)" disabled>
+                                            <input id="d4" type="checkbox" onclick="setPuntoHab(this)" disabled>
+                                            <input id="d5" type="checkbox" onclick="setPuntoHab(this)" disabled>
+                                        </div>
+                                        <div class="row">
+                                            <span id="descDiamantes">Diamantes se relaciona con el subterfugio, mentir, juegos de manos.</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- habilidades -->
+                    <div class="card">
+                        <div class="card-header" id="headingThree">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Capacidades Especiales y Equipo
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                            <div class="card-body text-left">
+                                <div class="container bg-light">
+                                    <!-- <div class="row"> -->
+                                    <div class="row">
+                                        <div id="puntosCapacidadesEspeciales"><b>Selecciona puntosCapacidadesEspeciales Capacidades Especiales de las indicadas segun tu clase de personaje</b>
+                                            <div class="row" id="m1" style="display: none;">
+                                                <div class="col">
+                                                    <div id="idMov1" style="display: none;"></div>
+                                                    <input id="mov1" type="checkbox" onclick="setPuntoCE(this)" />
+                                                    <b><span id="movNombre1"></span>:</b>
+                                                    <span id="movDesc1"></span>
+                                                </div>
+                                            </div>
+
+                                            <div class="row" id="m2" style="display: none;">
+                                                <div class="col">
+                                                    <div id="idMov2" style="display: none;"></div>
+                                                    <input id="mov2" type="checkbox" onclick="setPuntoCE(this)" />
+                                                    <b><span id="movNombre2"></span>:</b>
+                                                    <span id="movDesc2"></span>
+                                                </div>
+                                            </div>
+                                            <div class="row" id="m3" style="display: none;">
+                                                <div class="col">
+                                                    <div id="idMov3" style="display: none;"></div>
+                                                    <input id="mov3" type="checkbox" onclick="setPuntoCE(this)" />
+                                                    <b><span id="movNombre3"></span>:</b>
+                                                    <span id="movDesc3"></span>
+                                                </div>
+                                            </div>
+                                            <div class="row" id="m4" style="display: none;">
+                                                <div class="col">
+                                                    <div id="idMov4" style="display: none;"></div>
+                                                    <input id="mov4" type="checkbox" onclick="setPuntoCE(this)" />
+                                                    <b><span id="movNombre4"></span>:</b>
+                                                    <span id="movDesc4"></span>
+                                                </div>
+                                            </div>
+                                            <div class="row" id="m5" style="display: none;">
+                                                <div class="col">
+                                                    <div id="idMov5" style="display: none;"></div>
+                                                    <input id="mov5" type="checkbox" onclick="setPuntoCE(this)" />
+                                                    <b><span id="movNombre5"></span>:</b>
+                                                    <span id="movDesc5"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p></p>
+                                    <div class="row">
+
+                                        <div id="textoDescEquipo"><b>Selecciona tus puntosEquipo objetos de equipo de entre las siguientes opciones:</b>
+                                            <div class="row" id="eq1" style="display: none;">
+                                                <div class="col">
+                                                    <div id="idEquipo1" style="display: none;"></div>
+                                                    <input id="equipo1" type="checkbox" onclick="setPuntoEquipo(this)" /><span id="equipoNombre1"></span><span id="equipoDesc1"></span>
+                                                </div>
+
+                                            </div>
+                                            <div class="row" id="eq2" style="display: none;">
+                                                <div class="col">
+                                                    <div id="idEquipo2" style="display: none;"></div>
+                                                    <input id="equipo2" type="checkbox" onclick="setPuntoEquipo(this)" /><span id="equipoNombre2"></span><span id="equipoDesc2"></span>
+                                                </div>
+
+                                            </div>
+                                            <div class="row" id="eq3" style="display: none;">
+                                                <div class="col">
+                                                    <div id="idEquipo3" style="display: none;"></div>
+                                                    <input id="equipo3" type="checkbox" onclick="setPuntoEquipo(this)" /><span id="equipoNombre3"></span><span id="equipoDesc3"></span>
+                                                </div>
+
+                                            </div>
+                                            <div class="row" id="eq4" style="display: none;">
+                                                <div class="col">
+                                                    <div id="idEquipo4" style="display: none;"></div>
+                                                    <input id="equipo4" type="checkbox" onclick="setPuntoEquipo(this)" /><span id="equipoNombre4"></span><span id="equipoDesc4"></span>
+                                                </div>
+
+                                            </div>
+                                            <div class="row" id="eq5" style="display: none;">
+                                                <div class="col">
+                                                    <div id="idEquipo5" style="display: none;"></div>
+                                                    <input id="equipo5" type="checkbox" onclick="setPuntoEquipo(this)" /><span id="equipoNombre5"></span><span id="equipoDesc5"></span>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="info" class="p-3 bg-secondary text-light rounded">
+                        <i>Debes ponerle un nombre y asignar todos los puntos de Habilidades, Capacidades Especiales y equipo para guardar el personaje.</i>
+                    </div>
+                    <div id="aceptar" class="p-3" style="display: none;">
+                        <button type="button" id="aceptar" class="btn btn-lg rounded-pill btn-success " onclick="crearPersonaje()" data-toggle="modal" data-target="#exampleModalCenter">
+                            Crear Personaje
+                          </button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        Personaje creado y salvado.
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="redirigirPagina('jugador')">Cerrar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <%- include ("../piePagina.ejs") %>
+        </div>
+
+
+</body>
+<script src="../js/rolinapp/htmlUtils.js"></script>
+<script src="../js/rolinapp/personajeFW.js"></script>
+<script src="../js/rolinapp/crearPersonaje.js"></script>
+
+</html>

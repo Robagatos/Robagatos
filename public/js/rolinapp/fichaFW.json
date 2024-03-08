@@ -1,0 +1,22 @@
+{
+    "id": "",
+    "idPartida": "",
+    "px": [],
+    "nombre": "",
+    "descripcion": "",
+    "clase": "",
+    "juego": "",
+    "habEspecial": "",
+    "palo": "",
+    "habilidades": {
+        "picas": 0,
+        "treboles": 0,
+        "corazones": 0,
+        "diamantes": 0
+    },
+    "movimientos": [],
+    "equipo": [],
+    "salud": 0,
+    "heridas": [],
+    "consecuencias": []
+}

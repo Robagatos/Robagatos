@@ -1,0 +1,32 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "pwa-chrome",
+            "request": "launch",
+            "name": "Launch Chrome against localhost",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "type": "pwa-node",
+            "name": "Run Current File",
+            "request": "launch",
+            "program": "${workspaceFolder}\\app.js"
+        },
+        {
+            "type": "node",
+            "name": "Run Script: start",
+            "request": "launch",
+            "command": "npm run start",
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "node-terminal",
+            "name": "Ejecutar el script: start",
+            "request": "launch",
+            "command": "npm run start",
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}

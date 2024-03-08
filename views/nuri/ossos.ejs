@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ossos i Musculs</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <style>
+        .cajas {
+            float: left;
+            width: 95%;
+            height: 35px;
+            margin: 1px;
+            padding: 1px;
+            border: 1px solid black;
+        }
+        
+        .textos {
+            float: left;
+            margin: 2px;
+            padding: 2px;
+            height: 30px;
+            background-color: var(--bs-info-bg-subtle);
+        }
+    </style>
+    <script>
+        const ossos = ["Vèrtebres cervicals", "Vèrtebres dorsals", "Vèrtebres lumbars", "Sacre", "Còccix",
+            "Crani", "Mandibula", "Clavícula", "Manubri", "Escàpula", "Estérnum", "Costelles", "Húmer", "Cúbit", "Radi",
+            "Cintura pelviana", "Carps", "Metacarps", "Falanges (dits)", "Fémur", "Rótula", "Tibia", "Peroné", "Tars", "Metatars", "Falanges (Peus)"
+        ];
+
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            ev.target.appendChild(document.getElementById(data));
+        }
+
+        function iniciar() {
+
+            let funcionAsignar = (array, arrayName) => {
+                array.sort(function() {
+                    return Math.random() - 0.5
+                });
+                for (let i = 0; i < array.length; i++) {
+                    document.getElementById(arrayName + i).innerText = array[i];
+                }
+            };
+            funcionAsignar(ossos, "ossos");
+
+        }
+
+        function comprobar(arrayLiteral) {
+
+            let continuar = true;
+            let i = 1;
+            while (continuar) {
+                let cajaLiteral = arrayLiteral + 'Caja' + i;
+                let element = document.getElementById(cajaLiteral);
+                if (element === null) {
+                    continuar = false;
+                } else {
+                    let cajaText = element.attributes.value.textContent;
+                    let cajaValue = element.innerText;
+
+                    if (cajaText === cajaValue) {
+                        element.className = "cajas col bg-success-subtle";
+                    } else {
+                        element.className = "cajas col bg-danger-subtle";
+                        element.innerText = cajaText;
+                    }
+                    i++;
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container text-center">
+        <div class="row">
+            <h2>Ossos i Musculs</h2>
+        </div>
+        <div class="row">
+            <div class="col">
+                <button id="boton" class="btn btn-warning btn-lg" onclick="window.location.reload()">Reiniciar</button>
+            </div>
+            <div class="col">Si vols cambiar a Ossos, prem el botó</div>
+            <div class="col">
+                <form action="/musculs" method="get">
+                    <input class="btn-success btn100 btn-lg" type="submit" value="Musculs">
+                </form>
+            </div>
+        </div>
+
+        <p></p>
+        <div class="row">
+            <div class="col">
+                <div class="row">
+                    Assigna els literals dels ossos a la capsa que el relaciona amb la seva possicio a l'imatge.
+                </div>
+                <div class="row">
+                    Pulsa Comprobar per mostrar el resultat de l'assignació.
+                </div>
+            </div>
+
+        </div>
+        <p></p>
+        <div class="row align-items-center">
+
+            <div class="col text-center border">
+                <div id="ossos0" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="ossos1" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="ossos2" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="ossos3" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="ossos4" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="ossos5" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="ossos6" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="ossos7" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="ossos8" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="ossos9" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="ossos10" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="ossos11" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="ossos12" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="ossos13" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="ossos14" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="ossos15" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="ossos16" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="ossos17" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="ossos18" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="ossos19" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="ossos20" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="ossos21" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="ossos22" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="ossos23" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="ossos24" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="ossos25" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col-3">
+                <div class="row text-primary">Columna Vertebral</div>
+                <div class="row">
+                    <div class="col-2">1</div>
+                    <div id="ossosCaja1" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Vèrtebres cervicals"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">2</div>
+                    <div id="ossosCaja2" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Vèrtebres dorsals"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">3</div>
+                    <div id="ossosCaja3" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Vèrtebres lumbars"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">4</div>
+                    <div id="ossosCaja4" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Sacre"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">5</div>
+                    <div id="ossosCaja5" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Còccix"></div>
+                </div>
+                <div class="row text-primary">Calavera</div>
+                <div class="row">
+                    <div class="col-2">6</div>
+                    <div id="ossosCaja6" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Crani"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">7</div>
+                    <div id="ossosCaja7" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Mandibula"></div>
+                </div>
+                <div class="row text-primary">Resta del Cos</div>
+                <div class="row">
+                    <div class="col-2">8</div>
+                    <div id="ossosCaja8" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Clavícula"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">9</div>
+                    <div id="ossosCaja9" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Manubri"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">10</div>
+                    <div id="ossosCaja10" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Escàpula"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">11</div>
+                    <div id="ossosCaja11" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Estérnum"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">12</div>
+                    <div id="ossosCaja12" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Costelles"></div>
+                </div>
+            </div>
+            <div class="col-5 text-center">
+                <img src="imagenes/nuri/ossos.png" class="figure-img img-fluid rounded" height="100%">
+            </div>
+            <div class="col-3">
+                <div class="row">
+                    <div class="col-2">13</div>
+                    <div id="ossosCaja13" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Húmer"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">14</div>
+                    <div id="ossosCaja14" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Cúbit"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">15</div>
+                    <div id="ossosCaja15" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Radi"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">16</div>
+                    <div id="ossosCaja16" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Cintura pelviana"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">17</div>
+                    <div id="ossosCaja17" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Carps"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">18</div>
+                    <div id="ossosCaja18" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Metacarps"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">19</div>
+                    <div id="ossosCaja19" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Falanges (dits)"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">20</div>
+                    <div id="ossosCaja20" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Fémur"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">21</div>
+                    <div id="ossosCaja21" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Rótula"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">22</div>
+                    <div id="ossosCaja22" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Tibia"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">23</div>
+                    <div id="ossosCaja23" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Peroné"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">24</div>
+                    <div id="ossosCaja24" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Tars"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">25</div>
+                    <div id="ossosCaja25" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Metatars"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">26</div>
+                    <div id="ossosCaja26" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Falanges (Peus)"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <button class="btn btn-primary" type="button" onclick="comprobar('ossos')">Comprobar</button>
+        </div>
+        <p></p>
+
+
+    </div>
+
+</body>
+<script>
+    window.onload = iniciar;
+</script>

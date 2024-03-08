@@ -1,0 +1,553 @@
+{
+    "personajes": {
+        "pistolero": {
+            "id": "pistolero",
+            "nombre": "Pistolero",
+            "descripcion": "El pistolero es un vividor, un maton, un cazarrecompensas, un bandido... es aquel que vive de su destreza con las armas y la violencia. No tiene reparos en matar o herir, y ha hecho de la violencia y el uso de las armas su modus vivendi.",
+            "habEspecial": "Intimidación",
+            "palo": "Picas",
+            "movimientos": {
+                "1": "pistolero_1",
+                "2": "pistolero_2",
+                "3": "pistolero_3",
+                "4": "pistolero_4"
+            },
+            "puntosCE": 2,
+            "equipo": ["equipo_1", "revolver", "revolver_pesado", "equipo_2", "equipo_4"],
+            "puntosEquipo": 3
+
+        },
+        "cowboy": {
+            "id": "cowboy",
+            "nombre": "Cowboy",
+            "descripcion": "Los Cowboy son tipos duros hechos a la vida en el campo abierto, cuidando del ganado de alguien con muchas cabezas de ganado y poco tiempo o ganas de encargarse de ellas. El cowboy tiene que cuidar del ganado en bastas extensiones de terreno salvaje y traicionero, lo que les hace duros, curtidos y buenos jinetes.",
+            "habEspecial": "Pelea",
+            "palo": "Tréboles",
+            "movimientos": {
+                "1": "cowboy_1",
+                "2": "cowboy_2",
+                "3": "cowboy_3",
+                "4": "cowboy_4"
+            },
+            "puntosCE": 2,
+            "equipo": ["revolver", "fusil", "equipo_1", "equipo_4", "equipo_2"],
+            "puntosEquipo": 3
+
+        },
+        "predicador": {
+            "id": "predicador",
+            "nombre": "Predicador",
+            "descripcion": "Los Predicadores viajan de pueblo en pueblo llevando la palabra de dios (o su vision de ella) y las enseñanzas eticas y morales que ayuden a sobrevivir en estos duros tiempos. Son convincentes, capaces de mover grupos de personas para la causa que elijan. Luchan contra la oscuridad y la maldade alla donde se necesite, al menos es lo que predican.",
+            "habEspecial": "Mentir",
+            "palo": "Corazones",
+            "movimientos": {
+                "1": "predicador_1",
+                "2": "predicador_2",
+                "3": "predicador_3",
+                "4": "predicador_4"
+            },
+            "puntosCE": 2,
+            "equipo": ["revolver", "escopeta_ligera", "equipo_3", "equipo_4", "equipo_1"],
+            "puntosEquipo": 3
+
+        },
+        "tahur": {
+            "id": "tahur",
+            "nombre": "Tahur",
+            "descripcion": "El Tahur suele ser un tipo avispado, que ha hecho del juego, las apuestas y ser el mas listo (o tramposo) su modus vivendi. Trabajar en el campo o en la mina no va con ellos. Desde que se abrió la gran brecha entre el mundo espiritual y fue llamada la Oscuridad por el Chaman para que realice la Venganza sobre el hombre blanco, han descubierto un 'don' sobre el azar y los espiritus, que cuanto mas usan mas les ata a la oscuridad. Y normalmente, prefieren usar su 'don' para que todo les sea mas facil",
+            "habEspecial": "Percepción",
+            "palo": "Diamantes",
+            "movimientos": {
+                "1": "tahur_1",
+                "2": "tahur_2",
+                "3": "tahur_3",
+                "4": "tahur_4"
+            },
+            "puntosCE": 2,
+            "equipo": ["revolver_ligero", "equipo_2", "equipo_1", "revolver", "equipo_5"],
+            "puntosEquipo": 3
+
+        }
+    },
+    "estados_salud": {
+        "0": "Sano",
+        "1": "Herido leve",
+        "2": "Herido grave",
+        "3": "Herido de muerte",
+        "4": "Muerto"
+    },
+    "literales_heridas": [
+        "Contundente",
+        "Letal",
+        "Escabrosa"
+    ],
+    "descripcion_habilidades": {
+        "picas": "Picas",
+        "corazones": "Corazones",
+        "treboles": "Treboles",
+        "diamantes": "Diamantes"
+    },
+    "descripcion_dificultad": {
+        "muyFacil": "Muy Fácil",
+        "facil": "Fácil",
+        "media": "Normal",
+        "dificil": "Dificil",
+        "muyDificil": "Muy Dificil"
+    },
+    "equipo": [{
+            "id": "arma_improvisada",
+            "nombre": " Arma Improvisada ",
+            "descripcion": "Es un objeto con la capacidad de esgrimirse como arma y provocar daños con ella.",
+            "palo": "picas",
+            "dmg": "DMG1",
+            "herida": 0,
+            "tipo": "",
+            "custom": false
+        },
+        {
+            "id": "garras",
+            "nombre": " Garras ",
+            "descripcion": "Ataques de cuerpo a cuerpo de alcance corto, para cortar o perforar.",
+            "palo": "picas",
+            "dmg": "DMG1",
+            "herida": 1,
+            "tipo": "",
+            "custom": false
+        },
+        {
+            "id": "mordiscos",
+            "nombre": " Mordiscos Infecciosos ",
+            "descripcion": "Ataques de cuerpo a cuerpo de alcance corto que arrancan carne con putridos dientes e inoculan.",
+            "palo": "picas",
+            "dmg": "DMG1",
+            "herida": 2,
+            "tipo": "",
+            "custom": false
+        },
+        {
+            "id": "toqueFatasmal",
+            "nombre": " Toque Fantasmal ",
+            "descripcion": "Los seres inmateriales atraviesan la carne y dañan la esencia misma de la vida, robandola o quebrandola, dejando cuerpos secos y muertos",
+            "palo": "picas",
+            "dmg": "DMG2",
+            "herida": 1,
+            "tipo": "penetrante",
+            "custom": false
+        },
+        {
+            "id": "cuchillo",
+            "nombre": " Cuchillo ",
+            "descripcion": "Es un arma de cuerpo a cuerpo de alcance corto, para cortar o perforar.",
+            "palo": "picas",
+            "dmg": "DMG1",
+            "herida": 1,
+            "tipo": "",
+            "custom": false
+        },
+        {
+            "id": "sable",
+            "nombre": " Sable ",
+            "descripcion": "Es un arma de cuerpo a cuerpo para cortar y perforar. Es el arma de caballeria por excelencia para el cuerpo a cuerpo",
+            "palo": "picas",
+            "dmg": "DMG2",
+            "herida": 1,
+            "tipo": "",
+            "custom": false
+        },
+        {
+            "id": "revolver_ligero",
+            "nombre": " revolver ligero ",
+            "descripcion": "Es un arma pequeña de bajo calibre, que puede ocultarse muy facilmente. Usualmente tienen dos o cuatro balas",
+            "palo": "picas",
+            "dmg": "DMG1",
+            "herida": 1,
+            "tipo": "rapido",
+            "custom": false
+        }, {
+            "id": "revolver",
+            "nombre": " revolver 6 balas",
+            "descripcion": "El revolver típico, de 6 balas. Acertar a alguien mas alla de 20 metros es todo un prodigio.",
+            "palo": "picas",
+            "dmg": "DMG2",
+            "herida": 1,
+            "tipo": "",
+            "custom": false
+        }, {
+            "id": "revolver_pesado",
+            "nombre": " revolver pesado ",
+            "descripcion": "revolver pesado, un trasto grande, pesado y letal. Calibre 10mm",
+            "palo": "picas",
+            "dmg": "DMG3",
+            "herida": 1,
+            "tipo": "-1",
+            "custom": false
+        }, {
+            "id": "revolver_preciso",
+            "nombre": " revolver preciso ",
+            "descripcion": "revolver preciso, bien construido y cañon largo y algo estriado en su interior, consiguiendo que las balas giren sobre si mismas y ser mas precisas",
+            "palo": "picas",
+            "dmg": "DMG2",
+            "herida": 1,
+            "tipo": "+1",
+            "custom": false
+        }, {
+            "id": "escopeta_ligera",
+            "nombre": " escopeta ligera ",
+            "descripcion": "escopeta ligera, un arma larga de un cañon, ruidosa, alcance efectivo 15 metros.",
+            "palo": "picas",
+            "dmg": "DMG3",
+            "herida": 2,
+            "tipo": "recargaLenta",
+            "custom": false
+        }, {
+            "id": "escopeta",
+            "nombre": " escopeta ",
+            "descripcion": "escopeta de 2 cañones, ruidosa, alcance efectivo 15 metros, de recarga lenta",
+            "palo": "picas",
+            "dmg": "DMG4",
+            "herida": 2,
+            "tipo": "recargaLenta",
+            "custom": false
+        }, {
+            "id": "fusil",
+            "nombre": " fusil ",
+            "descripcion": "fusil pesado, de cerrojo, alcance efectivo 200 metros",
+            "palo": "picas",
+            "dmg": "DMG3",
+            "herida": 1,
+            "tipo": "recargaLenta",
+            "custom": false
+        }, {
+            "id": "explosivos",
+            "nombre": " explosivos ",
+            "descripcion": "cartuchos de dinamita",
+            "palo": "picas",
+            "dmg": "DMG5",
+            "herida": 2,
+            "tipo": "area",
+            "custom": false
+        }, {
+            "id": "guardapolvos",
+            "nombre": " Guardapolvos ",
+            "descripcion": "Gabardina larga y pesada que cubre al personaje, haciendo mas dificil acertarle",
+            "palo": "picas",
+            "tipo": "proteccion1",
+            "custom": false
+        }, {
+            "id": "equipo_1",
+            "nombre": " Un puñado de dólares ",
+            "descripcion": "Algunos dolares para gastos.",
+            "palo": "",
+            "tipo": "",
+            "custom": false
+        }, {
+            "id": "equipo_2",
+            "nombre": " Caballo ",
+            "descripcion": "Eres dueño de un caballo.",
+            "palo": "",
+            "tipo": "",
+            "custom": false
+        }, {
+            "id": "equipo_3",
+            "nombre": " Biblia ",
+            "descripcion": "Una biblia, tocha, dura",
+            "palo": "",
+            "tipo": "",
+            "custom": false
+        }, {
+            "id": "equipo_4",
+            "nombre": " Cuerda y Lazo",
+            "descripcion": "10 metros de cuerda con lazo hecho con nudo corredizo",
+            "palo": "",
+            "tipo": "",
+            "custom": false
+        }, {
+            "id": "equipo_5",
+            "nombre": " Baraja de cartas marcada ",
+            "descripcion": "Una baraja de cartas marcada. Cuidado que no te pillen.",
+            "palo": "diamantes",
+            "tipo": "+1",
+            "custom": false
+        }
+    ],
+    "movimientos": [{
+            "id": "cmTodoNada",
+            "nombre": "Todo o nada",
+            "descripcion": "Permite sumar 1 a la habilidad, pero en caso de parcial se considera fallo.",
+            "palo": "picas,corazones,treboles,diamantes",
+            "tipo": "+1"
+        },
+        {
+            "id": "cmAsegurarTiro",
+            "nombre": "Asegurar el tiro",
+            "descripcion": ".",
+            "palo": "picas,corazones,treboles,diamantes",
+            "tipo": "+1"
+        },
+        {
+            "id": "pistolero_1",
+            "nombre": "La mano mas rapida",
+            "descripcion": "Eres de los mas rapidos desenfundando y disparando.",
+            "palo": "picas",
+            "tipo": "GPJ"
+        },
+        {
+            "id": "pistolero_2",
+            "nombre": "Donde pongo el ojo, pongo la bala",
+            "descripcion": "Eres realmente bueno para lo que tu habilidad con el revolver dicta. Añades 1 a tu habilidad de picas cuando disparas.",
+            "palo": "picas",
+            "tipo": "+1"
+        },
+        {
+            "id": "pistolero_3",
+            "nombre": "Fanning",
+            "descripcion": "con el dedo indice presionando el gatillo y con la otra mano amartillando rapidamente, puedes descargar el revolver en segundos, pocos segundos. Añades 1 a tu habilidad de picas y 1 a daño con tu revolver, a cambio, te quedas sin municion. Por razones obvias, no puede usarse en conjunto de dos pistolas.",
+            "palo": "picas",
+            "tipo": "+1,daño,sinMunicion"
+        },
+        {
+            "id": "pistolero_4",
+            "nombre": "Arma Letal",
+            "descripcion": "Tus disparos tienden a ser letales. Sumas uno al daño que provocas con armas de fuego al disparar. Se aplica siempre.",
+            "palo": "picas",
+            "tipo": "daño"
+        },
+        {
+            "id": "cowboy_1",
+            "nombre": "Forjado en Peleas",
+            "descripcion": "Te has forjado en mil peleas, y eres muy bueno knockeando y encajando. añades 1 al ataque y daño en pelea no letales y sin armas, y absorbes 1 de daño en peleas no letales y sin armas.",
+            "palo": "treboles",
+            "tipo": "+1,daño,proteccion1"
+        },
+        {
+            "id": "cowboy_2",
+            "nombre": "Empatia animal",
+            "descripcion": "Tienes mano y empatia con los animales. Los animales no te atacan salvo que les ataques tu primero",
+            "palo": "treboles",
+            "tipo": "GPJ"
+        },
+        {
+            "id": "cowboy_3",
+            "nombre": "Uno con la montura",
+            "descripcion": "Puedes realizar casi cualquier accion desde tu caballo, subir y bajar al galope, descolgarte por el costado sin realizar checkeos extra.",
+            "palo": "treboles",
+            "tipo": "GPJ"
+        },
+        {
+            "id": "cowboy_4",
+            "nombre": "Maestro del lazo",
+            "descripcion": "Puedes usar el lazo para maniobras ingeniosas, atrapar personas y/o animales u objetos. Requiere un check de Treboles en lugar de Picas cuando el objetivo no quiere ser atrapado.",
+            "palo": "treboles",
+            "tipo": "GPJ"
+        },
+        {
+            "id": "predicador_1",
+            "nombre": "Orador Convincente",
+            "descripcion": "Sabes hablar a las multitudes",
+            "palo": "corazones",
+            "tipo": "+1"
+        },
+        {
+            "id": "predicador_2",
+            "nombre": "Confesor/Confidente",
+            "descripcion": "Si pasas un rato a solas con alguien de tu fe puedes extraerle informacion que solo contaría a sus mas intimos. Requiere igualmente un checkeo de Corazones",
+            "palo": "corazones",
+            "tipo": "GPJ"
+        },
+        {
+            "id": "predicador_3",
+            "nombre": "Azote del Señor",
+            "descripcion": "Siempre que combates a las huestes del Enemigo, tienes 1+ a la accion y +1 al daño. Ademas, tus ataques siempre pueden dañarles si empuñas una biblia en la otra mano, lo que descarta ataques con armas de dos manos.",
+            "palo": "corazones",
+            "tipo": "+1,daño"
+        },
+        {
+            "id": "predicador_4",
+            "nombre": "Protegido del Señor",
+            "descripcion": "El señor te protege, tienes +1 de proteccion contra todo daño",
+            "palo": "corazones",
+            "tipo": "proteccion1"
+        },
+        {
+            "id": "tahur_1",
+            "nombre": "Robar la suerte",
+            "descripcion": "El tahur puede robar la suerte a alguien a quien vea, con unos susurros y un destello en los ojos, acompañado de una sonrisa picara. Si tiene exito, el objetivo Falla su siguiente accion, y el Tahur obtiene un +1",
+            "palo": "diamantes",
+            "tipo": "robarSuerte"
+        },
+        {
+            "id": "tahur_2",
+            "nombre": "As en la manga",
+            "descripcion": "Tras fallar un check el Tahur puede dar la vuelta a la tortilla con un efecto inesperado pasando un check de Diamantes, convirtiendo un Fallo o Parcial en Exito. El resultado de 'As en la manga' substituye al anterior. Ademas, a tener en cuenta de que si no es exito, tendrá una Consecuencia adicional.",
+            "palo": "diamantes",
+            "tipo": "asManga"
+        },
+        {
+            "id": "tahur_3",
+            "nombre": "Dados Cargados",
+            "descripcion": "Permite al Tahur usar Diamantes en lugar de otro palo en un check. Eso si, tiene un nivel de dificultad incrementado, y no tiene Parciales, es decir, Exito o Fallo. Si no es exito, añade una consecuencia extra",
+            "palo": "diamantes",
+            "tipo": "dadosCargados"
+        },
+        {
+            "id": "tahur_4",
+            "nombre": "Juegos de Manos",
+            "descripcion": "Eres especialmente bueno realizando juegos de manos, y algunos parecen casi magia. Puedes escamotear un objeto que quepa en tu puño delante de cualquiera sin que sepa como lo has conseguido, robar una cartera, un reloj o hasta la pistola! Todos estos checkeos se realizan con Diamantes.",
+            "palo": "diamantes",
+            "tipo": "CPJ"
+        },
+        {
+            "id": "duro",
+            "nombre": "Duro",
+            "descripcion": "Reduce en uno el valor del daño antes de tirar",
+            "tipo": "proteccion1",
+            "palo": "picas corazones treboles diamantes"
+        },
+        {
+            "id": "sadico",
+            "nombre": "Sádico",
+            "descripcion": "Cuando hace daño, antes de tirar el valor, este aumenta en uno",
+            "tipo": "daño",
+            "palo": "picas corazones treboles diamantes"
+        },
+        {
+            "id": "curtidoPicas",
+            "nombre": "Combatiente",
+            "descripcion": "Reduce en uno las habilidades de PICAS que le afecten",
+            "tipo": "+1",
+            "palo": "picas"
+        },
+        {
+            "id": "curtidoCorazones",
+            "nombre": "Esceptico",
+            "descripcion": "Reduce en uno las habilidades de CORAZONES que le afecten",
+            "tipo": "+1",
+            "palo": "corazones"
+        },
+        {
+            "id": "curtidoTreboles",
+            "nombre": "Curtido",
+            "descripcion": "Reduce en uno las habilidades de TREBOLES que le afecten",
+            "tipo": "+1",
+            "palo": "treboles"
+        },
+        {
+            "id": "curtidoDiamantes",
+            "nombre": "Avispado",
+            "descripcion": "Reduce en uno las habilidades de DIAMANTES que le afecten",
+            "tipo": "+1",
+            "palo": "diamantes"
+        },
+        {
+            "id": "profesional",
+            "nombre": "Profesional",
+            "descripcion": "Aumenta en uno todo checkeo que esta directamente relacionado con su profesion.",
+            "tipo": "+1",
+            "palo": "picas corazones treboles diamantes"
+        }, {
+            "id": "inmaterial",
+            "nombre": "Inmaterial",
+            "descripcion": "No puede sufrir daño por armas mundanas. Solo lo divino, magico, sal o plata puede afectarle. Su toque roba el aliento vital, hiere el alma y acaba con la esencia vital.",
+            "tipo": "miasma",
+            "palo": "picas corazones treboles diamantes"
+        }, {
+            "id": "nomuerto",
+            "nombre": "No-Muerto",
+            "descripcion": "Carne animada por la oscuridad, al que la energia vital llama y alimenta en su rencor a lo vivo.",
+            "tipo": "miasma",
+            "palo": "picas"
+        }
+    ],
+    "consecuencias": {
+        "id_1": {
+            "nombre": "Dilatado en el tiempo",
+            "descripcion": "para conseguir el exito necesitas mas tiempo del habitual, usualmente el doble o el triple",
+            "tipo": "negativo,GPJ"
+        },
+        "id_2": {
+            "nombre": "Dolió",
+            "descripcion": "Sufres un nivel de herida Leve. A tener en cuenta de que si ya tienes un nivel de herida Grave, este parcial se convierte en 'Exhausto'",
+            "tipo": "negativo,inmediata"
+        },
+        "id_3": {
+            "nombre": "Daños colaterales",
+            "descripcion": "alguien que no querias que fuese afectado tambien sufre el efecto de la accion. Recuerda que es algo negativo, no puedes sanar a dos por el precio de uno con este parcial.",
+            "tipo": "negativo,GPJ"
+        },
+        "id_4": {
+            "nombre": "de la sarten a las brasas",
+            "descripcion": "consigues el exito de tu accion, pero te deja en muy mala posicion. Debes resolver un peligro inminente o sufrir sus consecuencias.",
+            "tipo": "negativo,GPJ"
+        },
+        "id_5": {
+            "nombre": "Exhausto",
+            "descripcion": "hasta el final de la escena aplicaras un -1 a todos los chequeos",
+            "tipo": "negativo,accion"
+        },
+        "id_6": {
+            "nombre": "No Salio Gratis",
+            "descripcion": "pierdes algo de tu equipo, si no es consumible lo deberas recoger si no deseas que la perdida sea para siempre",
+            "tipo": "negativo,inmediata"
+        },
+        "id_7": {
+            "nombre": "Herida importante!",
+            "descripcion": "El daño infringido aumenta en 1",
+            "tipo": "positivo,salud"
+        },
+        "id_8": {
+            "nombre": "Penetrante",
+            "descripcion": "Ignora la cobertura del objetivo.",
+            "tipo": "positivo,salud,GPJ"
+        },
+        "id_9": {
+            "nombre": "Penalizacion",
+            "descripcion": "sufres un tiron muscular, un doloroso golpe o impedimento que te aplica un -1 durante todo lo que queda de escena a Picas o Treboles.",
+            "tipo": "negativo,accion"
+        },
+        "id_10": {
+            "nombre": "Conmocion",
+            "descripcion": "Estas aturdido o conmocionado, quizas desorienteado, que te aplica un -1 durante todo lo que queda de escena a Corazones o Diamantes.",
+            "tipo": "negativo,accion"
+        },
+        "id_11": {
+            "nombre": "Dos por uno!",
+            "descripcion": "Afectas con el mismo daño a un objetivo colindante o en la trayectoria.",
+            "tipo": "positivo,inmediata,GPJ"
+        },
+        "id_12": {
+            "nombre": "Separarlo",
+            "descripcion": "Te permite lanzar a tu objetivo unos metros en una direccion, separandolo de ti. le llevará un turno volver a ti.",
+            "tipo": "positivo,inmediata,GPJ"
+        },
+        "id_13": {
+            "nombre": "Superioridad",
+            "descripcion": "Tu golpe marca la diferencia, a partir de ahora tienes un +1 vs el objetivo mientras tus acciones contra el sean de EXITO.",
+            "tipo": "positivo"
+        },
+        "id_14": {
+            "nombre": "Agotar",
+            "descripcion": "Eliminas un objeto o recurso de tu objetivo, esto puede desarmarle si es posible.",
+            "tipo": "positivo,inmediata"
+        },
+        "id_15": {
+            "nombre": "¡Sin Municion!",
+            "descripcion": "Te has quedado sin municion en el arma. Para volver a disparar necesitas recargarla",
+            "tipo": "negativo"
+        },
+        "id_16": {
+            "nombre": "Suerte",
+            "descripcion": "La suerte te sonrie, en tu siguiente tirada se aplica un +1.",
+            "tipo": "positivo,unUso,+1"
+        },
+        "id_17": {
+            "nombre": "Maldito",
+            "descripcion": "¡Estas maldito! Tu siguiente accion esta condenada al fracaso.",
+            "tipo": "negativo,unUso,fallo"
+        },
+        "id_18": {
+            "nombre": "Recarga Lenta",
+            "descripcion": "Necesitas emplear una accion de cualquier tipo para volver a tener el arma lista.",
+            "tipo": "negativo"
+        }
+    }
+}

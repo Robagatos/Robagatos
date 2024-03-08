@@ -1,0 +1,77 @@
+<div class="modal fade" id="solicitudCheckModal" tabindex="-1" data-backdrop="static" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Check Solicitado a <span id="pjCheckSel"></span></h5>
+            </div>
+            <div class="modal-body">
+                <div class="card-body" id="check">
+                    <div class="row">
+                        <div class="col">
+                            <span><b>Habilidad: </b></span>
+                            <span id="imgHab"></span>
+                            <span id="habCheckSel"></span>
+                        </div>
+                        <div class="col"><b>Dificultad: </b><span id="difCheckSel"></span></div>
+                    </div>
+                    <div id="checkModExtras">
+                        <div class="card-header">
+                            <b>Modificaciones seleccionadas por el jugador</b></div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col" id="cmAsegurarTiro" style="display: none;" data-toggle="tooltip" data-html="true" title="Permite sumar 1 a la habilidad, pero si no es exito se aplica una consecuencia extra">Asegurar el tiro</div>
+                            </div>
+                            <div class="row">
+                                <div class="col" id="cmTodoNada" style="display: none;" data-toggle="tooltip" data-html="true" title="Permite sumar 1 a la habilidad, pero en caso de parcial se considera fallo">Todo o nada</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-header" id="ceAplicables">
+                        <div><b>Capacidades Especiales seleccionadas por el jugador</b></div>
+                        <div class="card-body">
+                            <div class="row" id="cePlaceHolder">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-header" id="equipoAplicables">
+                        <div><b>Equipo seleccionado por el jugador</b></div>
+                        <div class="card-body">
+                            <div class="row" id="equipoPlaceHolder">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-header bg-primary text-light">
+                        <div class="row justify-content-center" id="habCheckInfoMensaje"></div>
+                        <div class="row justify-content-center"><b><h3 id="habCheckResultado"></h3></b></div>
+                    </div>
+
+                    <div class="row font-italic" id="habCheckTiradas"></div>
+                    <div class="row" id="habCheckForzarResultado">
+                        <span>Fijar el resultado del Check en:</span>
+                        <span>
+                <select class="custom-select" id="forzarResultadoSelect">
+                <option value="2" >Exito</option>
+                <option value="1" >Parcial</option>
+                <option value="0" >Fallo</option>
+            </select>
+        </span>
+                    </div>
+
+                    <div class="row text-left">
+                        <div class="col form-check" id="habCheckResultadoParciales"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <details>
+                    <summary>Detalles del Checkeo</summary>
+                    <p id="infoLog"></p>
+                </details>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="aceptarPropuestaBtn" class="btn btn-lg rounded-pill btn-success" onclick="aceptarPropuestaChecks()" style="display: none;">Aceptar</button>
+                <button type="button" id="publicarBtn" class="btn btn-lg rounded-pill btn-success" data-dismiss="modal" onclick="publicarResultado()" style="display: none;">Publicar</button>
+            </div>
+        </div>
+    </div>
+</div>

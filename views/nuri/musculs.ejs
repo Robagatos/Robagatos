@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Musculs i Ossos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <style>
+        .cajas {
+            float: left;
+            width: 95%;
+            height: 35px;
+            margin: 1px;
+            padding: 1px;
+            border: 1px solid black;
+        }
+        
+        .textos {
+            float: left;
+            margin: 2px;
+            padding: 2px;
+            height: 30px;
+            background-color: var(--bs-info-bg-subtle);
+        }
+    </style>
+    <script>
+        const musculsFront = ['Deltoide', 'Pectoral menor', "Recte major de l'abdomen", "Oblic major (o extern) de l'abdomen", "Oblic menor (o intern) de l'abdomen", "Pectini", "Peroneal llarg", "Peroneal curt", "Esternoclidomastoidal", "Pectoral major", "Biceps braquial", "Braquial", "Pronador rodó", "Supinador llarg", "Psoes iliac", "Adductors", "Sartori", "Quàdriceps femoral", "Tibial anterior"];
+        const musculsBack = ['Espleni del cap', "Elevador de l'escapula", "Romboide", "Triceps braquial", "Supinador llarg", "Gluti major", "Biceps femoral", "Semitendinós", "Semimembranós", "Gastrocnemi (bessons)", "Soli", "Trapezi", "Deltoide", "Dorsal ample", "Gluti menor", "Adductor major", "Quadriceps (vast extern)", "Peroneal llarg", "Peroneal curt"];
+
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            ev.target.appendChild(document.getElementById(data));
+        }
+
+        function iniciar() {
+
+            let funcionAsignar = (array, arrayName) => {
+                array.sort(function() {
+                    return Math.random() - 0.5
+                });
+                for (let i = 0; i < array.length; i++) {
+                    document.getElementById(arrayName + i).innerText = array[i];
+                }
+            };
+            funcionAsignar(musculsFront, "musculsFront");
+            funcionAsignar(musculsBack, "musculsBack");
+
+        }
+
+        function comprobar(arrayLiteral) {
+            function comprobarCajas(loc) {
+                let continuar = true;
+                let i = 1;
+                while (continuar) {
+                    let cajaLiteral = arrayLiteral + 'Caja' + loc + i;
+                    let element = document.getElementById(cajaLiteral);
+                    if (element === null) {
+                        continuar = false;
+                    } else {
+                        let cajaText = element.attributes.value.textContent;
+                        let cajaValue = element.innerText;
+
+                        if (cajaText === cajaValue) {
+                            element.className = "cajas col bg-success-subtle";
+                        } else {
+                            element.className = "cajas col bg-danger-subtle";
+                            element.innerText = cajaText;
+                        }
+                        i++;
+                    }
+                }
+            }
+            //comprobamos las cajas de la izq
+
+            comprobarCajas("Izq");
+            // comprobamos las cajas de la der
+            comprobarCajas("Der");
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container text-center">
+        <div class="row">
+            <h2>Musculs i Ossos</h2>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <button id="boton" class="btn btn-warning btn-lg" onclick="window.location.reload()">Reiniciar</button>
+            </div>
+            <div class="col">Si vols cambiar a Ossos, prem el botó</div>
+            <div class="col">
+                <form action="/ossos" method="get">
+                    <input class="btn-success btn100 btn-lg" type="submit" value="Ossos">
+                </form>
+            </div>
+        </div>
+
+        <p></p>
+        <div class="row">
+            <div class="col">
+                <div class="row">
+                    Assigna els literals dels musculs a la capsa que el relaciona amb la seva possicio a l'imatge.
+                </div>
+                <div class="row">
+                    Pulsa Comprobar per mostrar el resultat de l'assignació.
+                </div>
+            </div>
+
+
+        </div>
+        <p></p>
+        <div class="row align-items-center">
+
+            <div class="col text-center border">
+                <div id="musculsFront0" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="musculsFront1" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="musculsFront2" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="musculsFront3" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="musculsFront4" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="musculsFront5" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="musculsFront6" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="musculsFront7" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="musculsFront8" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="musculsFront9" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="musculsFront10" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="musculsFront11" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="musculsFront12" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="musculsFront13" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="musculsFront14" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="musculsFront15" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="musculsFront16" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="musculsFront17" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="musculsFront18" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col-3">
+                <div class="row">
+                    <div class="col-2">1</div>
+                    <div id="musculsFrontCajaIzq1" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Deltoide"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">2</div>
+                    <div id="musculsFrontCajaIzq2" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Pectoral menor"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">3</div>
+                    <div id="musculsFrontCajaIzq3" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Recte major de l'abdomen"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">4</div>
+                    <div id="musculsFrontCajaIzq4" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Oblic major (o extern) de l'abdomen"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">5</div>
+                    <div id="musculsFrontCajaIzq5" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Oblic menor (o intern) de l'abdomen"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">6</div>
+                    <div id="musculsFrontCajaIzq6" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Pectini"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">7</div>
+                    <div id="musculsFrontCajaIzq7" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Peroneal llarg"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">8</div>
+                    <div id="musculsFrontCajaIzq8" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Peroneal curt"></div>
+                </div>
+            </div>
+            <div class="col-5 text-center">
+                <img src="imagenes/nuri/image1.png" class="figure-img img-fluid rounded" height="100%">
+            </div>
+            <div class="col-3">
+                <div class="row">
+                    <div class="col-2">1</div>
+                    <div id="musculsFrontCajaDer1" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Esternoclidomastoidal"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">2</div>
+                    <div id="musculsFrontCajaDer2" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Pectoral major"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">3</div>
+                    <div id="musculsFrontCajaDer3" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Biceps braquial"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">4</div>
+                    <div id="musculsFrontCajaDer4" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Braquial"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">5</div>
+                    <div id="musculsFrontCajaDer5" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Pronador rodó"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">6</div>
+                    <div id="musculsFrontCajaDer6" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Supinador llarg"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">7</div>
+                    <div id="musculsFrontCajaDer7" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Psoes iliac"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">8</div>
+                    <div id="musculsFrontCajaDer8" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Adductors"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">9</div>
+                    <div id="musculsFrontCajaDer9" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Sartori"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">10</div>
+                    <div id="musculsFrontCajaDer10" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Quàdriceps femoral"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">11</div>
+                    <div id="musculsFrontCajaDer11" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Tibial anterior"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <button class="btn btn-primary" type="button" onclick="comprobar('musculsFront')">Comprobar</button>
+        </div>
+        <p></p>
+        <div class="row align-items-center">
+
+            <div class="col text-center border">
+                <div id="musculsBack0" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="musculsBack1" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="musculsBack2" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="musculsBack3" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="musculsBack4" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="musculsBack5" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="musculsBack6" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="musculsBack7" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="musculsBack8" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="musculsBack9" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="musculsBack10" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="musculsBack11" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="musculsBack12" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="musculsBack13" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="musculsBack14" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="musculsBack15" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="musculsBack16" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="musculsBack17" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="musculsBack18" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+                <div id="musculsBack19" class="textos rounded-2" draggable="true" ondragstart="drag(event)"></div>
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col-3">
+                <div class="row">
+                    <div class="col-2">1</div>
+                    <div id="musculsBackCajaIzq1" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Espleni del cap"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">2</div>
+                    <div id="musculsBackCajaIzq2" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Elevador de l'escapula"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">3</div>
+                    <div id="musculsBackCajaIzq3" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Romboide"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">4</div>
+                    <div id="musculsBackCajaIzq4" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Triceps braquial"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">5</div>
+                    <div id="musculsBackCajaIzq5" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Supinador llarg"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">6</div>
+                    <div id="musculsBackCajaIzq6" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Gluti major"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">7</div>
+                    <div id="musculsBackCajaIzq7" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Biceps femoral"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">8</div>
+                    <div id="musculsBackCajaIzq8" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Semitendinós"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">9</div>
+                    <div id="musculsBackCajaIzq9" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Semimembranós"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">10</div>
+                    <div id="musculsBackCajaIzq10" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Gastrocnemi (bessons)"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">11</div>
+                    <div id="musculsBackCajaIzq11" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Soli"></div>
+                </div>
+            </div>
+            <div class="col-5 text-center">
+                <img src="imagenes/nuri/image2.png" class="figure-img img-fluid rounded">
+            </div>
+            <div class="col-3">
+                <div class="row">
+                    <div class="col-2">1</div>
+                    <div id="musculsBackCajaDer1" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Trapezi"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">2</div>
+                    <div id="musculsBackCajaDer2" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Deltoide"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">3</div>
+                    <div id="musculsBackCajaDer3" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Dorsal ample"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">4</div>
+                    <div id="musculsBackCajaDer4" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Gluti menor"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">5</div>
+                    <div id="musculsBackCajaDer5" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Adductor major"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">6</div>
+                    <div id="musculsBackCajaDer6" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Quadriceps (vast extern)"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">7</div>
+                    <div id="musculsBackCajaDer7" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Peroneal llarg"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">8</div>
+                    <div id="musculsBackCajaDer8" class="cajas col" ondrop="drop(event)" ondragover="allowDrop(event)" value="Peroneal curt"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <button class="btn btn-primary" type="button" onclick="comprobar('musculsBack')">Comprobar</button>
+
+        </div>
+        <p></p>
+
+    </div>
+
+</body>
+<script>
+    window.onload = iniciar;
+</script>
