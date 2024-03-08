@@ -77,7 +77,7 @@
                     <p><strong class="text-primary">Cartas</strong></p>
                     <dl class="row">
                         <dt class="col-sm-1">Heroes</dt>
-                        <dd class="col-sm-10">Pon la carta en la mesa. Puedes substituir uno de tus Héroes que ya están en mesa y el Substituido va a Descartes. Se le desanexan cualquier carta que tuviera adjunta.</dd>
+                        <dd class="col-sm-10">Pon la carta en la mesa. Puedes substituir uno de tus Héroes que ya están en mesa y el substituido va a Descartes. Se le desanexan cualquier carta que tuviera adjunta. Ha esta accion se le llama <mark>'Refuerzos'</mark></dd>
                     </dl>
                     <div class="row align-items-center text-center">
                         <div class="col">Icono de cartas de Picaro</div>
@@ -111,8 +111,8 @@
                         <p class="text-primary "><img src="/imagenes/jcc/icono_picaro.png " height="40px ">Cartas de Picaro</p>
                         <dl class="row">
                             <dt class="col-sm-2"><img src="/imagenes/jcc/icono_sigilo.png " height="40px ">Sigilo</dt>
-                            <dd class="col-sm-10">Aplica a el pícaro que la ejecuta, no puede ser objetivo de cartas que afectan a un Heroe unitariamente (efectos globales sí que le afectan, por ejemplo, bola de fuego) salvo la carta de 'Furtivo' de otro picaro. Cuando realice
-                                una acción de Impacto (ojo, Impacto, no cualquier otra carta) Consume (descarta) esta carta de Sigilo. Cualquier efecto que le produce daño tambien elimina esta carta (como la Bola de fuego o un Furtivo)
+                            <dd class="col-sm-10">Aplica a el pícaro que la ejecuta, no puede ser objetivo de cartas que afectan a un Heroe unitariamente (efectos globales sí que le afectan, por ejemplo, bola de fuego) salvo la carta de <mark>'Furtivo'</mark> de otro picaro.
+                                Cuando realice una acción de Impacto (ojo, Impacto, no cualquier otra carta) Consume (descarta) esta carta de Sigilo. Cualquier efecto que le produce daño tambien elimina esta carta (como la Bola de fuego o un Furtivo)
                             </dd>
                             <dt class="col-sm-2"><img src="/imagenes/jcc/icono_furtivo.png " height="40px ">Furtivo</dt>
                             <dd class="col-sm-10">Aplica este impacto a una carta. No puede ser evitado ni contrarrestado (no se aplican cartas de Defensa ni la de Armadura de Guerrero) pero si se ve afectado por Bendicion.
@@ -130,8 +130,9 @@
                                 se desvanecen. Si además de la bola de fuego se hubiera jugado un impacto sobre el picaro o sobre el mago antes del fin del turno, sufrirían dos impactos y serian eliminados.</i>
                             </dd>
                             <dt class="col-sm-2"><img src="/imagenes/jcc/icono_hechizar.png " height="40px ">Hechizar</dt>
-                            <dd class="col-sm-10">Pon esta carta sobre un objetivo. No puede efectuar acciones hasta que se retire esta carta, y se retira cuando el objetivo sufra daño. No es un impacto, así que no puede ser sanado, pero si que puedes usar una carta de 'Defensa'
-                                para evitarla. Si el Héroe Objetivo es descartado con la acción ‘Reemplazar’ el hechizar es descartado y desanexado de este Héroe.
+                            <dd class="col-sm-10">Pon esta carta sobre un objetivo. No puede efectuar acciones hasta que se retire esta carta, y se retira cuando el objetivo sufra daño. No es un impacto, así que <strong>no puedes puedes usar una carta de 'Defensa' para evitarla</strong>,
+                                pero si que puedes usar un <mark>'Hechizar'</mark> lanzado por tu mago para cancelarla, siempre y cuando tu mago no esté hechizado, o la carta de <mark>'Sanar'</mark> del clerigo para escoger el 'Hechizar' como carta a
+                                remover. Si el Héroe Objetivo es descartado con la acción <mark>'Refuerzos'</mark> el hechizar es descartado y desanexado de este Héroe.
                             </dd>
                         </dl>
 
@@ -146,17 +147,16 @@
                         <p class="text-primary "><img src="/imagenes/jcc/icono_guerrero.png " height="40px ">Cartas de Guerrero</p>
                         <dl class="row">
                             <dt class="col-sm-2"><img src="/imagenes/jcc/icono_armadura.png " height="40px ">Armadura</dt>
-                            <dd class="col-sm-10">Pon esta carta sobre un guerrero. Consúmela para evitar un impacto que tenga como objetivo el guerrero anexado. Puede apilarse mas de una copia sobre el mismo guerrero. </dd>
+                            <dd class="col-sm-10">Pon esta carta sobre un guerrero. Consúmela (descartala) para evitar un impacto que tenga como objetivo el guerrero anexado. Puede apilarse mas de una copia sobre el mismo guerrero. </dd>
                             <dt class="col-sm-2"><img src="/imagenes/jcc/icono_golpePoderoso.png " height="40px ">Golpe Poderoso</dt>
-                            <dd class="col-sm-10">Este carta cuenta como dos impactos si consigue aplicarse. (Con lo que eventualmente acaba con cualquier Heroe.)</dd>
+                            <dd class="col-sm-10">Este carta cuenta como <mark>dos impactos</mark> si consigue aplicarse. (Con lo que eventualmente acaba con cualquier Heroe.) <strong>Se esquiva o evita con una unica carta de 'Defensa'</strong></dd>
                         </dl>
 
-                        <p><span class="text-primary ">Cartas Blancas: </span> <img class="m-1 p-1" src="/imagenes/jcc/back.png" style="transform: rotate(-5deg); width: 40%; float:left;">Se trata de cartas que no están reservadas a una clase concreta, sino
+                        <p><span class="text-primary">Cartas Blancas: </span> <img class="m-1 p-1" src="/imagenes/jcc/back.png" style="transform: rotate(-2deg); width: 40%; float:right;">Se trata de cartas que no están reservadas a una clase concreta, sino
                             que pueden ser ejecutadas por cualquier Heroe.</p>
                         <dl class="row">
-
                             <dt class="col-sm-2"><img src="/imagenes/jcc/icono_impacto.png " height="40px ">Impactos</dt>
-                            <dd class="col-sm-10">Pon el impacto sobre un enemigo. Se puede jugar con cualquiera de tus Heroes.</dd>
+                            <dd class="col-sm-10">Pon el impacto sobre un enemigo. Se puede jugar con cualquiera de tus Heroes. Por lo demas, tratar como un impacto de los descritos anteriormente.</dd>
                             <dt class="col-sm-2"><img src="/imagenes/jcc/icono_escudo.png " height="40px ">Defensa</dt>
                             <dd class="col-sm-10">Evita que un impacto o carta de ataque se aplique sobre uno de tus héroes. Se juega en el turno del contrincante. No evita cartas que lo especifique, como por ejemplo, Furtivo. </dd>
                             <dt class="col-sm-2"><img src="/imagenes/jcc/icono_tacticas.png " height="40px ">Tácticas</dt>
@@ -164,7 +164,7 @@
                             <dt class="col-sm-2"><img src="/imagenes/jcc/icono_emboscada.png " height="40px ">Emboscada</dt>
                             <dd class="col-sm-10">El contrincante debe descartar su mano. Como al inicio de su turno no tiene cartas, solo puede robar tres cartas y termina su turno.</dd>
                             <dt class="col-sm-2"><img src="/imagenes/jcc/icono_pocion.png " height="40px ">Poción</dt>
-                            <dd class="col-sm-10">Elimina un impacto, o la de Hechizar o un Furtivo ya aplicado (pues se considera un impacto una vez aplicado) de uno de tus héroes.</dd>
+                            <dd class="col-sm-10">Elimina un <mark>Impacto</mark> o un <mark>Furtivo</mark> ya aplicado (pues se considera un impacto una vez aplicado) de uno de tus héroes.</dd>
                         </dl>
                     </div>
                     <p></p>
