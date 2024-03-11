@@ -40,7 +40,7 @@
                         <p>En este juego de cartas, los jugadores representan el papel de Dioses que juegan entre ellos empleando a peones mortales en sus partidas, como si un macabro ajedrez fuese.</p>
                         <p>Desde el Olimpo, cada dios escoje sus Heroes, y los guia en una concatenacion de acciones y reacciones con la intecion de acabar con los de su rival, mientras el otro hace lo propio. Turnandose, jugando con las vidas de los mortales,
                             hasta que solo quedan los escogidos por uno de los dos.</p>
-                        <img class="m-1 p-1" src="/imagenes/jcc/sanar.png" style="transform: rotate(5deg); width: 40%; float: right;">
+                        <img class="m-1 p-1" src="/imagenes/jcc/sanar_2.png" style="transform: rotate(5deg); width: 40%; float: right;">
                         <p>Y mientras la partida se desarrolla, los dioses se observan, rien, maldicen y algunos hasta lloran. Al final, son los mortales los que caen, y los que quedan vivos, sin saber que solo es un juego, solo se preguntan '¿Volveré a
                             ser un escogido por algun Dios?'</p>
                     </div>
@@ -60,7 +60,18 @@
                     <p>El mazo inicial es de robar, están bocabajo. Cuando se agotan estas cartas, se toman las de descarte y se barajan, pasando a ser el nuevo mazo de robar.</p>
                     <p>Las cartas jugadas van a un mazo paralelo de descartes, están bocarriba y pueden ser consultadas por ambos jugadores en todo momento.</p>
                     <p>El cementerio es un mazo aparte donde van los héroes eliminados y alguna carta si asi es especificado. El cementerio no vuelve a la partida ni se baraja de nuevo con ningún mazo durante la partida.</p>
+                    <p> <span class="text-primary">Constitucion del mazo: </span>Un mazo se compone de 50 cartas, de las cuales:</p>
+                    <ul>
+                        <li>8 deben ser Heroes</li>
+                        <li>Hasta 5 deben ser Defensa</li>
+                        <li>Hasta 5 deben ser Pocion</li>
+                        <li>1 deben ser Tácticas</li>
+                        <li>1 deben ser Emboscada</li>
+                        <li>Hasta 4 deben ser Impactos Blancos Genericos</li>
+                        <li>Hay cartas que solo puedes tener una copia en la baraja</li>
+                        <li>Hasta sumar 50, pueden ser como desees</li>
 
+                    </ul>
                     <p><strong class="text-primary">Turnos: </strong>Cada jugador juega un turno y despues le toca a su contrincante. Si durante el desarrollo de cualquier turno un jugador queda sin heroes en el banquillo, ha perdido la partida.</p>
                     <p>Cada turno consta de dos fases, una de Accion en la que el jugador juega cartas de su mano, o se descarta las cartas de la mano que no desee.<strong> ¡Atencion!</strong> son excluyentes, o juegas cartas de tu mano o te descartas cartas
                         de la mano.</p>
@@ -88,12 +99,12 @@
                         <div class="col"><img src="/imagenes/jcc/icono_mago.png" width="90%"></div>
                     </div>
                     <div class="row align-items-center text-center">
-                        <div class="col">Icono de cartas de Clerigo</div>
-                        <div class="col">Icono de cartas de Guerrero</div>
+                        <div class="col"><img src="/imagenes/jcc/icono_clerigo_2.png" width="90%"></div>
+                        <div class="col"><img src="/imagenes/jcc/icono_guerrero.png" width="90%"></div>
                     </div>
                     <div class="row align-items-center text-center">
-                        <div class="col"><img src="/imagenes/jcc/icono_clerigo.png" width="90%"></div>
-                        <div class="col"><img src="/imagenes/jcc/icono_guerrero.png" width="90%"></div>
+                        <div class="col">Icono de cartas de Clerigo</div>
+                        <div class="col">Icono de cartas de Guerrero</div>
                     </div>
 
                     <div class="">
@@ -136,12 +147,19 @@
                             </dd>
                         </dl>
 
-                        <p class="text-primary "><img src="/imagenes/jcc/icono_clerigo.png " height="40px ">Cartas de Clérigo</p>
+                        <p class="text-primary "><img src="/imagenes/jcc/icono_clerigo_2.png " height="40px ">Cartas de Clérigo</p>
                         <dl class="row">
                             <dt class="col-sm-2"><img src="/imagenes/jcc/icono_sanar.png " height="40px ">Sanar</dt>
                             <dd class="col-sm-10">Elimina hasta una carta de tu elección de cada uno de tus héroes.</dd>
                             <dt class="col-sm-2"><img src="/imagenes/jcc/icono_bendicion.png " height="40px ">Bendición</dt>
-                            <dd class="col-sm-10">pon esta carta sobre el tablero. Cancela la próxima carta de tu elección que juegue tu contrincante, salvo que en esta indique lo contrario.</dd>
+                            <dd class="col-sm-10">
+                                <div>Bendicion tiene dos usos, y debes escoger uno de ellos al jugarla.</div>
+                                <ul>
+                                    <li>Pon esta carta sobre el tablero. Cancela una carta de tu elección que juegue tu contrincante, salvo que en esta indique lo contrario.</li>
+                                    <li>Pon esta carta sobre el tablero. Elimina una carta de tu elección en el banquillo de tu contrincante, salvo que en esta indique lo contrario.</li>
+                                </ul>
+                                <div>Cuando se escoge una opcion, consume la carta de Bendicion y enviala a descartes</div>
+                            </dd>
                         </dl>
 
                         <p class="text-primary "><img src="/imagenes/jcc/icono_guerrero.png " height="40px ">Cartas de Guerrero</p>
@@ -151,10 +169,11 @@
                             <dt class="col-sm-2"><img src="/imagenes/jcc/icono_golpePoderoso.png " height="40px ">Golpe Poderoso</dt>
                             <dd class="col-sm-10">Este carta cuenta como <mark>dos impactos</mark> si consigue aplicarse. (Con lo que eventualmente acaba con cualquier Heroe.) <strong>Se esquiva o evita con una unica carta de 'Defensa'</strong></dd>
                         </dl>
-
-                        <p><span class="text-primary">Cartas Blancas: </span> <img class="m-1 p-1" src="/imagenes/jcc/back.png" style="transform: rotate(-2deg); width: 33%; float:right;">Se trata de cartas que no están reservadas a una clase concreta, sino
-                            que pueden ser ejecutadas por cualquier Heroe.</p>
-                        <p></p>
+                        <dl class="row">
+                            <p><span class="text-primary">Cartas Blancas: </span> <img class="m-1 p-1" src="/imagenes/jcc/back.png" style="transform: rotate(-2deg); width: 33%; float:right;">Se trata de cartas que no están reservadas a una clase concreta,
+                                sino que pueden ser ejecutadas por cualquier Heroe.</p>
+                            <p></p>
+                        </dl>
                         <dl class="row">
                             <dt class="col-sm-2"><img src="/imagenes/jcc/icono_impacto.png " height="40px ">Impactos</dt>
                             <dd class="col-sm-10">Pon el impacto sobre un enemigo. Se puede jugar con cualquiera de tus Heroes. Por lo demas, tratar como un impacto de los descritos anteriormente.</dd>

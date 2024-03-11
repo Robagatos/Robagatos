@@ -55,7 +55,7 @@
                 <div class="card-header bg-primary text-light">Contexto</div>
                 <div class="card-body">
                     <div class="clearfix">
-                        <img class="col-md-2 float-md-start" src="/imagenes/jcc/furtivo.png" style="transform: rotate(-5deg);"><img class="col-md-2 float-md-end" src="/imagenes/jcc/sanar.png" style="transform: rotate(5deg);">
+                        <img class="col-md-2 float-md-start" src="/imagenes/jcc/furtivo.png" style="transform: rotate(-5deg);"><img class="col-md-2 float-md-end" src="/imagenes/jcc/sanar_2.png" style="transform: rotate(5deg);">
                         <dl class="row">
                             <p>En este juego de cartas, los jugadores representan el papel de Dioses que juegan entre ellos empleando a peones mortales en sus partidas, como si un macabro ajedrez fuese.</p>
                             <p>Desde el Olimpo, cada dios escoje sus Heroes, y los guia en una concatenacion de acciones y reacciones con la intecion de acabar con los de su rival, mientras el otro hace lo propio. Turnandose, jugando con las vidas de los
@@ -72,17 +72,29 @@
             <div class="card">
                 <div class="card-header bg-primary text-light">Reglamento</div>
                 <div class="card-body">
+                    <div class="float-end"><img src="/imagenes/jcc/algunosHeroes.png " height="400px "></div>
                     <p>El juego consiste en vencer a tu contrincante. Para ello, debes conseguir que en algún momento del juego no tenga ningún héroe en su banquillo.</p>
                     <p><strong class="text-primary">Inicio: </strong>Cada jugador escoge 4 héroes de su baraja y los coloca en mesa en la zona del banquillo, que es la zona de la mesa frente a el que se emplea para colocar los heroes que estan en juego,
                         y pueden realizar acciones y recibirlas.</p>
                     <p>No puede escoger héroes repetidos.</p>
-                    <div class="float-end"><img src="/imagenes/jcc/algunosHeroes.png " height="400px "></div>
+
                     <p>Luego baraja y tras cortar por su contrincante determinan quien empieza, cortando la baraja en un punto al azar y mostrando la carta, el primero que saque una carta con icono en blanco y el otro no, será el que empiece la partida.</p>
                     <p><strong class="text-primary">Mazos y ubicaciones</strong></p>
                     <p>El mazo inicial es de robar, están bocabajo. Cuando se agotan estas cartas, se toman las de descarte y se barajan, pasando a ser el nuevo mazo de robar.</p>
                     <p>Las cartas jugadas van a un mazo paralelo de descartes, están bocarriba y pueden ser consultadas por ambos jugadores en todo momento.</p>
                     <p>El cementerio es un mazo aparte donde van los héroes eliminados y alguna carta si asi es especificado. El cementerio no vuelve a la partida ni se baraja de nuevo con ningún mazo durante la partida.</p>
+                    <p> <span class="text-primary">Constitucion del mazo: </span>Un mazo se compone de 50 cartas, de las cuales:</p>
+                    <ul>
+                        <li>8 deben ser Heroes</li>
+                        <li>Hasta 5 deben ser Defensa</li>
+                        <li>Hasta 5 deben ser Pocion</li>
+                        <li>1 deben ser Tácticas</li>
+                        <li>1 deben ser Emboscada</li>
+                        <li>Hasta 4 deben ser Impactos Blancos Genericos</li>
+                        <li>Hay cartas que solo puedes tener una copia en la baraja</li>
+                        <li>Hasta sumar 50, pueden ser como desees</li>
 
+                    </ul>
                     <p><strong class="text-primary">Turnos: </strong>Cada jugador juega un turno y despues le toca a su contrincante. Si durante el desarrollo de cualquier turno un jugador queda sin heroes en el banquillo, ha perdido la partida.</p>
                     <p>Cada turno consta de dos fases, una de Accion en la que el jugador juega cartas de su mano, o se descarta las cartas de la mano que no desee.<strong> ¡Atencion!</strong> son excluyentes, o juegas cartas de tu mano o te descartas cartas
                         de la mano.</p>
@@ -110,7 +122,7 @@
                     <div class="row align-items-center text-center">
                         <div class="col"><img src="/imagenes/jcc/icono_picaro.png" height="80px"></div>
                         <div class="col"><img src="/imagenes/jcc/icono_mago.png" height="80px"></div>
-                        <div class="col"><img src="/imagenes/jcc/icono_clerigo.png" height="80px"></div>
+                        <div class="col"><img src="/imagenes/jcc/icono_clerigo_2.png" height="80px"></div>
                         <div class="col"><img src="/imagenes/jcc/icono_guerrero.png" height="80px"></div>
                     </div>
 
@@ -154,12 +166,19 @@
                             </dd>
                         </dl>
 
-                        <p class="text-primary "><img src="/imagenes/jcc/icono_clerigo.png " height="40px ">Cartas de Clérigo</p>
+                        <p class="text-primary "><img src="/imagenes/jcc/icono_clerigo_2.png " height="40px ">Cartas de Clérigo</p>
                         <dl class="row">
                             <dt class="col-sm-2"><img src="/imagenes/jcc/icono_sanar.png " height="40px ">Sanar</dt>
                             <dd class="col-sm-10">Elimina hasta una carta de tu elección de cada uno de tus héroes.</dd>
                             <dt class="col-sm-2"><img src="/imagenes/jcc/icono_bendicion.png " height="40px ">Bendición</dt>
-                            <dd class="col-sm-10">pon esta carta sobre el tablero. Cancela la próxima carta de tu elección que juegue tu contrincante, salvo que en esta indique lo contrario.</dd>
+                            <dd class="col-sm-10">
+                                <div>Bendicion tiene dos usos, y debes escoger uno de ellos al jugarla.</div>
+                                <ul>
+                                    <li>Pon esta carta sobre el tablero. Cancela una carta de tu elección que juegue tu contrincante, salvo que en esta indique lo contrario.</li>
+                                    <li>Pon esta carta sobre el tablero. Elimina una carta de tu elección en el banquillo de tu contrincante, salvo que en esta indique lo contrario.</li>
+                                </ul>
+                                <div>Cuando se escoge una opcion, consume la carta de Bendicion y enviala a descartes</div>
+                            </dd>
                         </dl>
 
                         <p class="text-primary "><img src="/imagenes/jcc/icono_guerrero.png " height="40px ">Cartas de Guerrero</p>
