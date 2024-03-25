@@ -296,9 +296,9 @@ function enviarComentario() {
         mail: document.getElementById('mail').value,
         comentario: document.getElementById('comentario').value
     };
-    console.log(mensaje);
+    // console.log(mensaje);
     if (mensaje.comentario == "") {
-        alert("El comentario no puede estar vacio.");
+        alert("El comentario no puede estar vacío.");
     } else {
         document.getElementById('comentarios').style = "display: none;";
         let promise = new Promise((resolve, reject) => {
@@ -317,7 +317,7 @@ function enviarComentario() {
             document.getElementById('comentarioEnviado').style = "display: block;";
         });
         promise.catch(() => {
-            alert("Error en el envio del comentario");
+            alert("Error en el envío del comentario");
         });
 
     }
